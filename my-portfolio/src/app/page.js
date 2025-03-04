@@ -8,7 +8,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen mt-20  sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="col-span-full flex flex-col items-center gap-4 mt-20 mb-10 row-start-1 ">
         <div className="flex flex-row items-center gap-4 mt-20 ">
-          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg shadow-xl shadow-blue-500/50">
+          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-blue-300/30 hover:shadow-blue-500/50">
             <Image
               src="/profile.jpg"
               alt="Matheos Amanuel"
@@ -23,12 +23,16 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex flex-col gap-8 row-start-2 items-center pt-20 mt-20 lg:items-start">
-      <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg shadow-xl shadow-blue-500/50">
+      <main className="col-span-full flex flex-col items-center gap-4 mt-20 mb-10 row-start-2">
+      <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h2 className="text-2xl font-bold text-center">About Me</h2>
           <p className="text-lg text-white-500 text-center">
             I am a developer with a background in IT Support and a passion for creating engaging and efficient software. My projects include a 2D space shooter game, a multi-page Valorant Info React Native app, and full-stack Employee Finder MVC web applications. I thrive in collaborative, team-driven environments and love tackling challenges that drive innovation and challenge my knowledge. I'm always open to learning, collaborating, and making new connections!
           </p>
+      </div>
+      <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+          <h2 className="text-2xl font-bold text-center">Education Completion</h2>
+          
       </div>
       </main>
 
