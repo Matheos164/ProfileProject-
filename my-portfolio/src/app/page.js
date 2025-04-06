@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 
 
+
+
 export default function Home() {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -61,25 +63,74 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
-          <h1 className="text-2xl font-bold text-center">Skills</h1>
-          <h2 className="text-xl font-bold text-white-500 text-center">Programming Languages</h2>
-          <div className="flex flex-row items-center gap-4">
-            <Image
-              src="/htmlCssJS.png"
-              alt="HTML/Css/JS logo"
-              width={175}
-              height={175}
-              className="bg-clip-border"
-            />
+          <h1 className="text-2xl font-bold text-center">Programming Languages</h1>
+          <div className="flex flex-row items-center gap-4 ">
             <Image
               src="/python.png"
               alt="Python logo"
               width={75}
               height={75}
+              className="rounded bg-clip-border"
+            />
+            <Image
+              src="/java.png"
+              alt="java logo"
+              width={75}
+              height={75}
+              className="rounded bg-clip-border"
+            />
+            <Image
+              src="/HtmlCssJs.png"
+              alt="HTML/Css logo"
+              width={300}
+              height={175}
               className="bg-clip-border"
             />
-            
-            </div>
+            <Image
+              src="/Sql.png"
+              alt="SQL logo"
+              width={70}
+              height={50}
+              className="bg-clip-border"
+            />
+            <Image
+              src="/Php.png"
+              alt="PHP logo"
+              width={100}
+              height={100}
+              className="bg-clip-border"
+            />
+          </div>
+          <div className="flex flex-row items-center gap-4">
+            <Image
+              src="/CSharp.png"
+              alt="C# logo"
+              width={90}
+              height={100}
+              className="bg-clip-border"
+            />
+            <Image
+              src="/React.png"
+              alt="React logo"
+              width={130}
+              height={100}
+              className="bg-clip-border"
+            />
+            <Image
+              src="/Node.png"
+              alt="Node logo"
+              width={150}
+              height={100}
+              className="bg-clip-border"
+            />
+            <Image
+              src="/TWCSS.png"
+              alt="TWCSS logo"
+              width={100}
+              height={75}
+              className="bg-clip-border"
+            />
+          </div>
         </div>
 
       </main>
