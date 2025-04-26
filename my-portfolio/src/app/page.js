@@ -28,7 +28,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h2 className="text-2xl font-bold text-center">About Me</h2>
           <p className="text-lg text-white-500 text-center">
-            I am a developer with a background in IT Support and a passion for creating software. I have completed my education in Software Development and have 1 year of experience in IT Support.
+            Juniour software developer with a background in IT Support and a passion for creating software and constant learning. I have completed my education in Software Development and have 1 year of experience in IT Support.
             I thrive in collaborative, team-driven environments and when working individually, and love tackling challenges that drive innovation and challenge my knowledge. I'm always open to learning, collaborating, and making new connections!
           </p>
         </div>
@@ -133,11 +133,42 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+          <h1 className="text-3xl font-bold text-center">Projects</h1>
+          <div className="flex flex-col items-center gap-4 border-t-2 border-b-2 border-white-500 ">
+              {/*https://www.flaticon.com/free-icons/gaming | Gaming icons created by mynamepong - Flaticon*/}
+              <Image
+                src="/project1.png"
+                alt="Project 1"
+                width={75}
+                height={50}
+                className="rounded bg-clip-border"
+              />
+              <h1 className="text-2xl text-white-500 text-center font-bold">Space Defense 2D Unity Game</h1>
+
+            <h3 className="text-l text-white-500 text-center font-bold">Unity Game Engine | C# | PHP | SQL</h3>
+            <div className="flex flex-row items-center gap-2">
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+              <h3 className="text-l text-white-500 text-center font-bold text-color-blue"><a className="underline decoration-sky-500" href="https://github.com/Matheos164/Space_Defense_Game" target="_blank" rel="noopener noreferrer">GitHub Repo</a> | <a className="underline decoration-sky-500" href="https://me-phrog.itch.io/space-defense-web-version" target="_blank" rel="noopener noreferrer">Try The Game</a> </h3>
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+            </div>
+            <p className="text-lg text-white-500 text-center">Developed a 2D game on Unity Engine using C# for gameplay functions and PHP and SQl for networks and server features. The player's main objective is to defende the earth from oncoming enemies while trying to acheave a high score. The game features consists for the following, The player which orbits around a planet with the ability to shoot and activate a sheald, the planet which the player must defend, three enemie types which consists of a Astroid, Elien Ship, and Boss Mother Ship.</p>
+          </div>
+        </div>
+
       </main>
-
-
-
-
 
       <footer className="col-span-full flex flex-col items-center justify-center gap-4 text-white-500 border-top-2 border-white-500 row-start-3">
         <div className="flex gap-6 flex-wrap items-center justify-center">
