@@ -20,3 +20,29 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Define the keyframes for rotating the shadow */
+@keyframes rotateShadow {
+  0% {
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
+  }
+  25% {
+    box-shadow: 10px 10px 20px 5px rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 20px 20px 5px rgba(255, 255, 255, 0.7);
+  }
+  75% {
+    box-shadow: -10px 10px 20px 5px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Apply the animation to the container */
+.rotate-shadow-animation {
+  position: relative;
+  animation: rotateShadow 3s infinite linear;
+  box-shadow: 0 0 50px 50px rgba(0, 0, 255, 0.7), 0 0 20px 5px rgba(255, 255, 255, 0.7);
+}
+

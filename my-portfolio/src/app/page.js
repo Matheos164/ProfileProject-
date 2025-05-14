@@ -9,7 +9,9 @@ export default function Home() {
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="col-span-full flex flex-col items-center gap-4 row-start-1">
         <div className="flex flex-row items-center gap-4">
-          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-box shadow-blue-500/70 hover:shadow-white/100 transition-shadow duration-500 ease-in-out">
+          <div
+  className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-box shadow-blue-500/70 rotate-shadow-animation"
+>
             <Image
               src="/profile.jpg"
               alt="Matheos Amanuel"
@@ -62,9 +64,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+        <div className="flex flex-col flex-wrap items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-2xl font-bold text-center">Programming Languages</h1>
-          <div className="flex flex-row items-center gap-4 ">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4 ">
             <Image
               src="/python.png"
               alt="Python logo"
@@ -100,8 +102,6 @@ export default function Home() {
               height={100}
               className="bg-clip-border"
             />
-          </div>
-          <div className="flex flex-row items-center gap-4">
             <Image
               src="/CSharp.png"
               alt="C# logo"
@@ -136,16 +136,14 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-3xl font-bold text-center">Projects</h1>
           <div className="flex flex-col items-center gap-4 border-t-2 border-b-2 border-white-500 ">
-              {/*https://www.flaticon.com/free-icons/gaming | Gaming icons created by mynamepong - Flaticon*/}
-              <Image
-                src="/project1.png"
-                alt="Project 1"
-                width={75}
-                height={50}
-                className="rounded bg-clip-border"
-              />
-              <h1 className="text-2xl text-white-500 text-center font-bold">Space Defense 2D Unity Game</h1>
-
+            <Image
+              src="/project1.png"
+              alt="Project 1"
+              width={200}
+              height={50}
+              className="rounded bg-clip-border pt-5"
+            />
+            <h1 className="text-2xl text-white-500 text-center font-bold">Space Defense - 2D Unity Game</h1>
             <h3 className="text-l text-white-500 text-center font-bold">Unity Game Engine | C# | PHP | SQL</h3>
             <div className="flex flex-row items-center gap-2">
               <Image
@@ -164,7 +162,38 @@ export default function Home() {
                   className="rounded bg-clip-border"
                 />
             </div>
-            <p className="text-lg text-white-500 text-center">Developed a 2D game on Unity Engine using C# for gameplay functions and PHP and SQl for networks and server features. The player's main objective is to defende the earth from oncoming enemies while trying to acheave a high score. The game features consists for the following, The player which orbits around a planet with the ability to shoot and activate a sheald, the planet which the player must defend, three enemie types which consists of a Astroid, Elien Ship, and Boss Mother Ship.</p>
+            <p className="text-lg text-white-500 text-center pb-5">Developed a 2D game on Unity Engine using C# for gameplay functions and PHP and SQl for networks and server features. The player's main objective is to defende the earth from oncoming enemies while trying to acheave a high score. The game features consists for the following, The player which orbits around a planet with the ability to shoot and activate a sheald, the planet which the player must defend, three enemie types which consists of a Astroid, Elien Ship, and Boss Elien Ship.</p>
+          </div>
+
+          <div className="flex flex-col items-center gap-4 border-t-2 border-b-2 border-white-500 ">
+            <Image
+              src="/project2.png"
+              alt="Project 2"
+              width={250}
+              height={150}
+              className="rounded bg-clip-border pt-5"
+            />
+            <h1 className="text-2xl text-white-500 text-center font-bold">Employee Finder App – Dynamic Web App </h1>
+            <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3>
+            <h3 className="text-l text-white-500 text-center font-bold">Username: Admin | Password: admin </h3>
+            <div className="flex flex-row items-center gap-2">
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+              <h3 className="text-l text-white-500 text-center font-bold text-color-blue"><a className="underline decoration-sky-500" href="https://github.com/Matheos164/Emp_Finder" target="_blank" rel="noopener noreferrer">GitHub Repo</a> | <a className="underline decoration-sky-500" href="https://www.empfinder.free.nf" target="_blank" rel="noopener noreferrer">View The Site</a> </h3>
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+            </div>
+            <p className="text-lg text-white-500 text-center pb-5">Developed and designed a full-stack dynamic web application that enables users to locate employees based on selected locations. The site allows regular users to select a location and search for an employee by name. If a match is found, the system displays the employee’s information along with a map of the corresponding area or floor. An admin login feature allows site administrators to add, edit, and remove employee profiles, which are stored in a SQL database.</p>
           </div>
         </div>
 
