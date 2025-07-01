@@ -9,9 +9,7 @@ export default function Home() {
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="col-span-full flex flex-col items-center gap-4 row-start-1">
         <div className="flex flex-row items-center gap-4">
-          <div
-  className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-box shadow-blue-500/70 rotate-shadow-animation"
->
+          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-box shadow-blue-500/70 rotate-shadow-animation">
             <Image
               src="/profile.jpg"
               alt="Matheos Amanuel"
@@ -19,7 +17,7 @@ export default function Home() {
               height={270}
               className="rounded-full border-2 bg-clip-border border-gray-700/50 shadow-xl shadow-black/50 hover:shadow-black/70 transition-shadow duration-500 ease-in-out"
             />
-            <h1 className="text-4xl font-bold text-center bg-gradient-to-r">Matheos Amanuel</h1>
+            <h1 className="text-5xl font-bold text-center bg-gradient-to-r">Matheos Amanuel</h1>
             <h2 className="text-2xl text-white-500 text-center">Software Developer</h2>
             <h3 className="text-xl text-white-500 text-center">IT Support Specialist</h3>
           </div>
@@ -194,6 +192,21 @@ export default function Home() {
                 />
             </div>
             <p className="text-lg text-white-500 text-center pb-5">Developed and designed a full-stack dynamic web application that enables users to locate employees based on selected locations. The site allows regular users to select a location and search for an employee by name. If a match is found, the system displays the employee’s information along with a map of the corresponding area or floor. An admin login feature allows site administrators to add, edit, and remove employee profiles, which are stored in a SQL database.</p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+          <h1 className="text-3xl font-bold text-center">Extracurricular</h1>
+          <div className="flex flex-col items-center gap-4 border-t-2 border-b-2 border-white-500 ">
+            <Image
+              src="/extracurricular.png"
+              alt="Extracurricular"
+              width={200}
+              height={50}
+              className="rounded bg-clip-border pt-5"
+            />
+            <h1 className="text-2xl text-white-500 text-center font-bold">Mohawk College - Tēmi Robot Reserch & Documentation Project</h1>
+            <h3 className="text-l text-white-500 text-center font-bold">Reverse engeneered and documented Tēmi Robot's SDK to create software to controll the robot.</h3>
+            <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
         </div>
 
