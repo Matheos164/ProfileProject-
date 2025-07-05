@@ -37,7 +37,12 @@ export default function Home() {
 
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-2xl font-bold text-center">Education Completion</h1>
-          <h2 className="text-xl font-bold text-white-500 text-center">Mohawk College</h2>
+          <Image
+              src="/mohawk.png"
+              alt="Matheos Amanuel"
+              width={200}
+              height={50}
+            />
           <div className="flex flex-row items-center gap-4">
             {/*Icons by Freepik */}
             <Image
@@ -133,7 +138,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-3xl font-bold text-center">Projects</h1>
-          <div className="flex flex-col items-center gap-4 border-t-2 border-b-2 border-white-500 ">
+          <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
             <Image
               src="/project1.png"
               alt="Project 1"
@@ -163,7 +168,7 @@ export default function Home() {
             <p className="text-lg text-white-500 text-center pb-5">Developed a 2D game on Unity Engine using C# for gameplay functions and PHP and SQl for networks and server features. The player's main objective is to defende the earth from oncoming enemies while trying to acheave a high score. The game features consists for the following, The player which orbits around a planet with the ability to shoot and activate a sheald, the planet which the player must defend, three enemie types which consists of a Astroid, Elien Ship, and Boss Elien Ship.</p>
           </div>
 
-          <div className="flex flex-col items-center gap-4 border-t-2 border-b-2 border-white-500 ">
+          <div className="flex flex-col items-center gap-4 border-b-4 border-white-500 ">
             <Image
               src="/project2.png"
               alt="Project 2"
@@ -196,16 +201,60 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-3xl font-bold text-center">Extracurricular</h1>
-          <div className="flex flex-col items-center gap-4 border-t-2 border-b-2 border-white-500 ">
+          <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
             <Image
-              src="/extracurricular.png"
+              src="/temi.png"
               alt="Extracurricular"
               width={200}
               height={50}
               className="rounded bg-clip-border pt-5"
             />
-            <h1 className="text-2xl text-white-500 text-center font-bold">Mohawk College - Tēmi Robot Reserch & Documentation Project</h1>
-            <h3 className="text-l text-white-500 text-center font-bold">Reverse engeneered and documented Tēmi Robot's SDK to create software to controll the robot.</h3>
+            <h1 className="text-2xl text-white-500 text-center font-bold">Tēmi Robot - Research & Documentation</h1>
+            <Image
+              src="/kotlin.png"
+              alt="Kotlin logo"
+              width={75}
+              height={75}
+              className="rounded bg-clip-border"
+            />
+            <p className="text-lg text-white-500 text-center pb-5"></p>
+          </div>
+          <div className="flex flex-col items-center gap-4  ">
+            <Image
+              src="/crowdvision.png"
+              alt="Extracurricular"
+              width={200}
+              height={50}
+              className="rounded bg-clip-border pt-5"
+            />
+            <h1 className="text-2xl text-white-500 text-center font-bold">CrowdVision - Startup Proof of Concept</h1>
+            <Image
+              src="/python.png"
+              alt="Python logo"
+              width={45}
+              height={75}
+              className="rounded bg-clip-border"
+            />
+            <h3 className="text-xl text-white-500 text-center font-bold">|<a href="https://theforge.mcmaster.ca/startups/crowdvision/" className="underline decoration-sky-500"> Project Article </a>|</h3>
+            <p className="text-lg text-white-500 text-center pb-5"></p>
+          </div>
+          <div className="flex flex-col items-center gap-4 border-t-2 border-b-4 border-white-500 ">
+            <Image
+              src="/remembering.png"
+              alt="Extracurricular"
+              width={200}
+              height={50}
+              className="rounded bg-clip-border pt-5"
+            />
+            <h1 className="text-2xl text-white-500 text-center font-bold">Remembering Their Faces - Face Matching Research</h1>
+            <Image
+              src="/python.png"
+              alt="Python logo"
+              width={45}
+              height={75}
+              className="rounded bg-clip-border"
+            />
+            <h3 className="text-xl text-white-500 text-center font-bold">|<a href="https://www.mohawknewsdesk.ca/unlocking-canadas-military-aviation-history/" className="underline decoration-sky-500"> Project Article </a>|</h3>
             <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
         </div>
