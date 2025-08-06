@@ -28,8 +28,12 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h2 className="text-2xl font-bold text-center">About Me</h2>
           <p className="text-lg text-white-500 text-center">
-            Juniour software developer with a background in IT Support and a passion for creating software and constant learning. I have completed my education in Software Development and have 1 year of experience in IT Support.
-            I thrive in collaborative, team-driven environments and when working individually, and love tackling challenges that drive innovation and challenge my knowledge. I'm always open to learning, collaborating, and making new connections!
+            Junior Software Developer & IT Support Specialist with hands-on experience developing web and desktop/mobile
+            applications, alongside a proven track record of providing enterprise-level IT support across multiple locations via
+            phone, on-site, and remote channels. Proficient in coding languages such as Python, C#, PHP, etc., experienced in
+            managing workstations, user accounts, and process documentation. Committed to delivering exceptional customer
+            service, effective technical support, and clear documentation while actively pursuing continuous learning and
+            professional growth.
           </p>
         </div>
 
@@ -147,7 +151,38 @@ export default function Home() {
               className="rounded bg-clip-border pt-5"
             />
             <h1 className="text-2xl text-white-500 text-center font-bold">Space Defense - 2D Unity Game</h1>
-            <h3 className="text-l text-white-500 text-center font-bold">Unity Game Engine | C# | PHP | SQL</h3>
+            {/* <h3 className="text-l text-white-500 text-center font-bold">Unity Game Engine | C# | PHP | SQL</h3> */}
+            <div className="flex flex-row items-center gap-2">
+              <Image
+              src="/unity.png"
+              alt="Unity"
+              width={50}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            <Image
+              src="/CSharp.png"
+              alt="CSharp"
+              width={50}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+              <Image
+              src="/php.png"
+              alt="php"
+              width={50}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            <Image
+              src="/sql.png"
+              alt="SQL"
+              width={50}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            
+            </div>
             <div className="flex flex-row items-center gap-2">
               <Image
                   src="/link.png"
@@ -177,15 +212,61 @@ export default function Home() {
               className="rounded bg-clip-border pt-5"
             />
             <h1 className="text-2xl text-white-500 text-center font-bold">Employee Finder App – Dynamic Web App </h1>
-            <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3>
+            {/* <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3> */}
+            <div className="flex flex-row items-center gap-2">
+              <Image
+              src="/php.png"
+              alt="php"
+              width={50}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            <Image
+              src="/sql.png"
+              alt="SQL"
+              width={50}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            <Image
+              src="/HtmlCssJS.png"
+              alt="HtmlCssJS"
+              width={120}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            <Image
+              src="/bootstarp.png"
+              alt="bootstarp"
+              width={50}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            </div>
+            <div className="flex flex-row items-center gap-2">
+            <Image
+              src="/lock.png"
+              alt="lock"
+              width={25}
+              height={0}
+              className="rounded bg-clip-border"
+            />
             <h3 className="text-l text-white-500 text-center font-bold">Username: Admin | Password: admin </h3>
+            <Image
+              src="/lock.png"
+              alt="lock"
+              width={25}
+              height={0}
+              className="rounded bg-clip-border"
+            />
+            </div>
             <div className="flex flex-row items-center gap-2">
               <Image
                   src="/link.png"
                   alt="Project 1"
                   width={20}
                   height={25}
-                  className="rounded bg-clip-border"
+
                 />
               <h3 className="text-l text-white-500 text-center font-bold text-color-blue"><a className="underline decoration-sky-500" href="https://github.com/Matheos164/Emp_Finder" target="_blank" rel="noopener noreferrer">GitHub Repo</a> | <a className="underline decoration-sky-500" href="https://www.empfinder.free.nf" target="_blank" rel="noopener noreferrer">View The Site</a> </h3>
               <Image
@@ -193,7 +274,7 @@ export default function Home() {
                   alt="Project 1"
                   width={20}
                   height={25}
-                  className="rounded bg-clip-border"
+                className="rounded bg-clip-border"
                 />
             </div>
             <p className="text-lg text-white-500 text-center pb-5">Developed and designed a full-stack dynamic web application that enables users to locate employees based on selected locations. The site allows regular users to select a location and search for an employee by name. If a match is found, the system displays the employee’s information along with a map of the corresponding area or floor. An admin login feature allows site administrators to add, edit, and remove employee profiles, which are stored in a SQL database.</p>
@@ -217,6 +298,23 @@ export default function Home() {
               height={75}
               className="rounded bg-clip-border"
             />
+            <div className="flex flex-row items-center gap-2">
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+              <h3 className="text-xl text-white-500 text-center font-bold"><a href="/Temi_manual.pdf" className="underline decoration-sky-500" target="_blank" rel="noopener noreferrer">Project Documentation</a></h3>
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+            </div>
             <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
           <div className="flex flex-col items-center gap-4  ">
@@ -235,7 +333,24 @@ export default function Home() {
               height={75}
               className="rounded bg-clip-border"
             />
-            <h3 className="text-xl text-white-500 text-center font-bold">|<a href="https://theforge.mcmaster.ca/startups/crowdvision/" className="underline decoration-sky-500"> Project Article </a>|</h3>
+            <div className="flex flex-row items-center gap-2">
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+              <h3 className="text-xl text-white-500 text-center font-bold"><a href="https://theforge.mcmaster.ca/startups/crowdvision/" className="underline decoration-sky-500" target="_blank" rel="noopener noreferrer">Project Article</a></h3>
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+            </div>
+            <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2>
             <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
           <div className="flex flex-col items-center gap-4 border-t-2 border-b-4 border-white-500 ">
@@ -254,7 +369,23 @@ export default function Home() {
               height={75}
               className="rounded bg-clip-border"
             />
-            <h3 className="text-xl text-white-500 text-center font-bold">|<a href="https://www.mohawknewsdesk.ca/unlocking-canadas-military-aviation-history/" className="underline decoration-sky-500"> Project Article </a>|</h3>
+            <div className="flex flex-row items-center gap-2">
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+              <h3 className="text-xl text-white-500 text-center font-bold"><a href="https://www.mohawknewsdesk.ca/unlocking-canadas-military-aviation-history/" className="underline decoration-sky-500" target="_blank" rel="noopener noreferrer">Project Article</a></h3>
+              <Image
+                  src="/link.png"
+                  alt="Project 1"
+                  width={20}
+                  height={25}
+                  className="rounded bg-clip-border"
+                />
+            </div>
             <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
         </div>
