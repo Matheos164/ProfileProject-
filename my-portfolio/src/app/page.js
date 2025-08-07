@@ -15,18 +15,17 @@ export default function Home() {
               alt="Matheos Amanuel"
               width={270}
               height={270}
-              className="rounded-full border-2 bg-clip-border border-gray-700/50 shadow-xl shadow-black/50 hover:shadow-black/70 transition-shadow duration-500 ease-in-out"
+              className="rounded-full border-2 bg-clip-border border-gray-700/50 shadow-xl shadow-black/100 hover:shadow-black/150 transition-shadow duration-500 ease-in-out"
             />
             <h1 className="text-5xl font-bold text-center bg-gradient-to-r">Matheos Amanuel</h1>
-            <h2 className="text-2xl text-white-500 text-center">Software Developer</h2>
-            <h3 className="text-xl text-white-500 text-center">IT Support Specialist</h3>
+            <h2 className="text-2xl text-white-500 text-center">Software Developer & IT Support Specialist</h2>
           </div>
         </div>
       </header>
 
       <main className="col-span-full flex flex-col items-center gap-4 mt-20 mb-10 row-start-2">
         <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 rounded-lg">
-          <h2 className="text-2xl font-bold text-center">About Me</h2>
+          <h2 className="text-3xl font-bold text-center">About Me</h2>
           <p className="text-lg text-white-500 text-center">
             Junior Software Developer & IT Support Specialist with hands-on experience developing web and desktop/mobile
             applications, alongside a proven track record of providing enterprise-level IT support across multiple locations via
@@ -38,16 +37,18 @@ export default function Home() {
         </div>
 
 
-
+        {/* Education Completion */}
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
-          <h1 className="text-2xl font-bold text-center">Education Completion</h1>
-          <Image
+          <h1 className="text-3xl font-bold text-center">Education Completion</h1>
+          <div className="flex flex-col items-center gap-4 border-t-4 border-b-4 border-white-500 pb-5">
+            <Image
               src="/mohawk.png"
               alt="Matheos Amanuel"
               width={200}
               height={50}
+              className="pt-5"
             />
-          <div className="flex flex-row items-center gap-4">
+            <div className="flex flex-row items-center gap-4">
             {/*Icons by Freepik */}
             <Image
               src="/diploma.png"
@@ -56,7 +57,7 @@ export default function Home() {
               height={50}
               className="bg-clip-border shadow-xl shadow-gray-500/40 hover:shadow-white/70 transition-shadow duration-500 ease-in-out"
             />
-            <h3 className="text-xl text-white-500 text-center">Computer Systems Technology - Software Development Advanced Diploma</h3>
+            <h3 className="text-2xl text-white-500 text-center">Computer Systems Technology - Software Development Advanced Diploma</h3>
           </div>
           <div className="flex flex-row items-center gap-4">
             {/*Icons by Freepik */}
@@ -67,13 +68,15 @@ export default function Home() {
               height={50}
               className="bg-clip-border shadow-xl shadow-gray-500/50 hover:shadow-white/60 transition-shadow duration-500 ease-in-out"
             />
-            <h3 className="text-xl text-white-500 text-center">Computer Systems Technician - Software Support Diploma</h3>
+            <h3 className="text-2xl text-white-500 text-center">Computer Systems Technician - Software Support Diploma</h3>
+          </div>
           </div>
         </div>
 
+        {/* Programming Languages */}
         <div className="flex flex-col flex-wrap items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
-          <h1 className="text-2xl font-bold text-center">Programming Languages</h1>
-          <div className="flex flex-row flex-wrap items-center justify-center gap-4 ">
+          <h1 className="text-3xl font-bold text-center">Programming Languages</h1>
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4 border-t-4 border-b-4 border-white-500 pb-5">
             <Image
               src="/python.png"
               alt="Python logo"
@@ -140,6 +143,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Projects */}
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-3xl font-bold text-center">Projects</h1>
           <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
@@ -280,6 +284,8 @@ export default function Home() {
             <p className="text-lg text-white-500 text-center pb-5">Developed and designed a full-stack dynamic web application that enables users to locate employees based on selected locations. The site allows regular users to select a location and search for an employee by name. If a match is found, the system displays the employee’s information along with a map of the corresponding area or floor. An admin login feature allows site administrators to add, edit, and remove employee profiles, which are stored in a SQL database.</p>
           </div>
         </div>
+
+        {/* Extracurricular */}
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-3xl font-bold text-center">Extracurricular</h1>
           <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
@@ -315,6 +321,8 @@ export default function Home() {
                   className="rounded bg-clip-border"
                 />
             </div>
+            {/* Create Description */}
+            <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2>
             <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
           <div className="flex flex-col items-center gap-4  ">
@@ -350,6 +358,7 @@ export default function Home() {
                   className="rounded bg-clip-border"
                 />
             </div>
+            {/* Create Description */}
             <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2>
             <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
@@ -386,6 +395,8 @@ export default function Home() {
                   className="rounded bg-clip-border"
                 />
             </div>
+            {/* Create Description */}
+            <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2>
             <p className="text-lg text-white-500 text-center pb-5"></p>
           </div>
         </div>
