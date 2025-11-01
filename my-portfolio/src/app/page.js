@@ -288,22 +288,16 @@ export default function Home() {
         {/* Extracurricular */}
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-3xl font-bold text-center">Extracurricular</h1>
-          <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
-            <Image
+          <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 pb-5 ">
+              <Image
               src="/temi.png"
               alt="Extracurricular"
               width={200}
               height={50}
               className="rounded bg-clip-border pt-5"
-            />
-            <h1 className="text-2xl text-white-500 text-center font-bold">Tēmi Robot - Research & Documentation</h1>
-            <Image
-              src="/kotlin.png"
-              alt="Kotlin logo"
-              width={75}
-              height={75}
-              className="rounded bg-clip-border"
-            />
+              />
+              <h1 className="text-2xl text-white-500 text-center font-bold">Tēmi Robot - Research & Documentation</h1>
+            
             <div className="flex flex-row items-center gap-2">
               <Image
                   src="/link.png"
@@ -321,9 +315,11 @@ export default function Home() {
                   className="rounded bg-clip-border"
                 />
             </div>
-            {/* Create Description */}
-            <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2>
-            <p className="text-lg text-white-500 text-center pb-5"></p>
+            <div className="border-2 border-dashed border-black w-full flex flex-col items-center gap-4 pt-4 bg-white shadow-xl shadow-black/50 ">
+              <h2 className="text-xl text-black text-center underline decoration-black font-bold text-shadow- text-shadow-sky-300">About Project</h2>
+              <p className="text-m text-black text-center pb-5">Conducted research on the Tēmi robot's SDK (Software Development Kit), focusing on its capabilities and functionalities. Developed a comprehensive user manual to guide developers in getting started with the Tēmi robot, covering installation, configuration, and basic programming tasks using Kotlin. The manual aims to provide a clear getting-started guide for developers interested in working with the Tēmi robot platform.
+              </p>
+            </div>
           </div>
           <div className="flex flex-col items-center gap-4  ">
             <Image
