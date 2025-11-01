@@ -133,13 +133,13 @@ export default function Home() {
               height={100}
               className="bg-clip-border"
             />
-            <Image
+            {/* <Image
               src="/TWCSS.png"
               alt="TWCSS logo"
               width={100}
               height={75}
               className="bg-clip-border"
-            />
+            /> */}
           </div>
         </div>
 
@@ -216,7 +216,7 @@ export default function Home() {
               className="rounded bg-clip-border pt-5"
             />
             <h1 className="text-2xl text-white-500 text-center font-bold">Employee Finder App – Dynamic Web App </h1>
-            {/* <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3> */}
+            <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3>
             <div className="flex flex-row items-center gap-2">
               <Image
               src="/php.png"
@@ -315,11 +315,11 @@ export default function Home() {
                   className="rounded bg-clip-border"
                 />
             </div>
-            <div className="border-2 border-dashed border-black w-full flex flex-col items-center gap-4 pt-4 bg-white shadow-xl shadow-black/50 ">
-              <h2 className="text-xl text-black text-center underline decoration-black font-bold text-shadow- text-shadow-sky-300">About Project</h2>
-              <p className="text-m text-black text-center pb-5">Conducted research on the Tēmi robot's SDK (Software Development Kit), focusing on its capabilities and functionalities. Developed a comprehensive user manual to guide developers in getting started with the Tēmi robot, covering installation, configuration, and basic programming tasks using Kotlin. The manual aims to provide a clear getting-started guide for developers interested in working with the Tēmi robot platform.
+            {/* <div className="border-2 border-dashed border-black w-full flex flex-col items-center gap-4 pt-4 bg-white shadow-xl shadow-black "> */}
+              {/* <h2 className="text-xl text-black text-center underline decoration-black font-bold text-shadow-stone-500">About Project</h2> */}
+              <p className="text-lg text-white-500 text-center pb-5">Conducted research on the Tēmi robot's SDK (Software Development Kit), focusing on its capabilities and functionalities. Developed a comprehensive user manual to guide developers in getting started with the Tēmi robot, covering installation, configuration, and basic functionalities to control the robot. The manual aims to provide a clear getting-started guide for developers interested in working with the Tēmi robot platform.
               </p>
-            </div>
+            {/* </div> */}
           </div>
           <div className="flex flex-col items-center gap-4  ">
             <Image
@@ -355,9 +355,11 @@ export default function Home() {
                 />
             </div>
             {/* Create Description */}
-            <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2>
-            <p className="text-lg text-white-500 text-center pb-5"></p>
-          </div>
+            {/* <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2> */}
+              <p className="text-lg text-white-500 text-center pb-5">
+                Researched and developed a proof of concept for CrowdVision, a startup focused on creating a event/concerts social media platform. The proof of concept involved developing a prototype backend system that demonstrated the core features and functionalities of the envisioned platform. This included a Upscaling system, Video stabilization system, Audio aligning system, and video sequence aligning and merging. The proof of concept aimed to showcase the technical feasibility and potential of the CrowdVision platform.
+              </p>       
+            </div>
           <div className="flex flex-col items-center gap-4 border-t-2 border-b-4 border-white-500 ">
             <Image
               src="/remembering.png"
@@ -392,8 +394,10 @@ export default function Home() {
                 />
             </div>
             {/* Create Description */}
-            <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2>
-            <p className="text-lg text-white-500 text-center pb-5"></p>
+            {/* <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2> */}
+            <p className="text-lg text-white-500 text-center pb-5">
+              Conducted research on facial recognition technology to assist in identifying and matching historical photographs of Canadian military personnel from World War II with existing records. Developed a prototype system using Python and relevant libraries to analyze and compare facial features in photographs, aiming to enhance the accuracy and efficiency of the identification process. The research aimed to contribute to preserving and honoring the legacy of Canadian military personnel by facilitating the identification of individuals in historical photographs.
+            </p>
           </div>
         </div>
 
