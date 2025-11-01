@@ -2,8 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 
-
-
 export default function Home() {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -82,56 +80,56 @@ export default function Home() {
               alt="Python logo"
               width={75}
               height={75}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[75px] h-[75px] hover:w-[90px] hover:h-[90px]"
             />
             <Image
               src="/java.png"
               alt="java logo"
               width={75}
               height={75}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[75px] h-[120px] hover:w-[90px] hover:h-[140px]"
             />
             <Image
               src="/HtmlCssJs.png"
               alt="HTML/Css logo"
               width={300}
               height={175}
-              className="bg-clip-border"
+              className="bg-clip-border transition-all duration-300 ease-in-out w-[200px] h-auto hover:w-[250px]"
             />
             <Image
               src="/Sql.png"
               alt="SQL logo"
               width={70}
               height={50}
-              className="bg-clip-border"
+              className="bg-clip-border transition-all duration-300 ease-in-out w-[70px] h-auto hover:w-[84px]"
             />
             <Image
               src="/Php.png"
               alt="PHP logo"
               width={100}
               height={100}
-              className="bg-clip-border"
+              className="bg-clip-border transition-all duration-300 ease-in-out w-[100px] h-auto hover:w-[120px]"
             />
             <Image
               src="/CSharp.png"
               alt="C# logo"
               width={90}
               height={100}
-              className="bg-clip-border"
+              className="bg-clip-border transition-all duration-300 ease-in-out w-[90px] h-auto hover:w-[108px]"
             />
             <Image
               src="/React.png"
               alt="React logo"
               width={130}
               height={100}
-              className="bg-clip-border"
+              className="bg-clip-border transition-all duration-300 ease-in-out w-[130px] h-auto hover:w-[156px]"
             />
             <Image
               src="/Node.png"
               alt="Node logo"
               width={150}
               height={100}
-              className="bg-clip-border"
+              className="bg-clip-border transition-all duration-300 ease-in-out w-[150px] h-auto hover:w-[180px]"
             />
             {/* <Image
               src="/TWCSS.png"
