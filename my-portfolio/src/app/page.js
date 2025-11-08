@@ -6,15 +6,19 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="col-span-full flex flex-col items-center gap-4 row-start-1">
-        <div className="flex flex-row items-center gap-4">
-          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-box shadow-blue-500/70 rotate-shadow-animation">
-            <Image
-              src="/profile.jpg"
-              alt="Matheos Amanuel"
-              width={270}
-              height={270}
-              className="rounded-full border-2 bg-clip-border border-gray-700/50 shadow-xl shadow-black/100 hover:shadow-black/150 transition-shadow duration-500 ease-in-out"
-            />
+        <div className="flex flex-row items-center gap-4 ">
+          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-blue-500/70 rotate-shadow-animation">
+            <div className="group">
+              <Image
+                src="/profile.jpg"
+                alt="Matheos Amanuel"
+                width={270}
+                height={270}
+                className="rounded-full border-2 border-gray-700/50 shadow-xl shadow-black/80 
+                           transition-all duration-300 ease-in-out 
+                           group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-black/100"
+              />
+            </div>
             <h1 className="text-5xl font-bold text-center bg-gradient-to-r">Matheos Amanuel</h1>
             <h2 className="text-2xl text-white-500 text-center">Software Developer & IT Support Specialist</h2>
           </div>
@@ -24,8 +28,8 @@ export default function Home() {
       <main className="col-span-full flex flex-col items-center gap-4 mt-20 mb-10 row-start-2">
         <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h2 className="text-3xl font-bold text-center">About Me</h2>
-          <p className="text-lg text-white-500 text-center">
-            Junior Software Developer & IT Support Specialist with hands-on experience developing web and desktop/mobile
+          <p className="text-lg text-white-500 text-center ">
+            Junior Software Developer & IT Support Specialist with hands-on experience developing web, desktop, and mobile
             applications, alongside a proven track record of providing enterprise-level IT support across multiple locations via
             phone, on-site, and remote channels. Proficient in coding languages such as Python, C#, PHP, etc., experienced in
             managing workstations, user accounts, and process documentation. Committed to delivering exceptional customer
@@ -34,17 +38,17 @@ export default function Home() {
           </p>
         </div>
 
-
+        
         {/* Education Completion */}
         <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
           <h1 className="text-3xl font-bold text-center">Education Completion</h1>
-          <div className="flex flex-col items-center gap-4 border-t-4 border-b-4 border-white-500 pb-5">
+          <div className="flex flex-col items-center gap-4 border-t-4 border-b-4 border-white-500 pb-5 pt-5">
             <Image
               src="/mohawk.png"
               alt="Matheos Amanuel"
               width={200}
               height={50}
-              className="pt-5"
+              className="pt-4 bg-clip-border rounded-lg"
             />
             <div className="flex flex-row items-center gap-4">
             {/*Icons by Freepik */}
@@ -214,7 +218,7 @@ export default function Home() {
               className="rounded bg-clip-border pt-5"
             />
             <h1 className="text-2xl text-white-500 text-center font-bold">Employee Finder App – Dynamic Web App </h1>
-            <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3>
+            {/* <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3> */}
             <div className="flex flex-row items-center gap-2">
               <Image
               src="/php.png"
@@ -394,7 +398,7 @@ export default function Home() {
             {/* Create Description */}
             {/* <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2> */}
             <p className="text-lg text-white-500 text-center pb-5">
-              Conducted research on facial recognition technology to assist in identifying and matching historical photographs of Canadian military personnel from World War II with existing records. Developed a prototype system using Python and relevant libraries to analyze and compare facial features in photographs, aiming to enhance the accuracy and efficiency of the identification process. The research aimed to contribute to preserving and honoring the legacy of Canadian military personnel by facilitating the identification of individuals in historical photographs.
+              Conducted research on facial recognition technology to assist in identifying and matching historical photographs of Canadian military personnel from World War II with existing records. Developed a prototype system using Python and relevant libraries to analyze and compare facial features in photographs, aiming to identify the best mode to use for facial recognition. The research aimed to contribute to preserving and honoring the legacy of Canadian military personnel by facilitating the identification of individuals in historical photographs.
             </p>
           </div>
         </div>

@@ -20,76 +20,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Define the keyframes for rotating the shadow */
-/* @keyframes rotateShadow {
-  0% {
-    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
-  }
-  25% {
-    box-shadow: 10px 10px 20px 5px rgba(255, 255, 255, 0.7);
-  }
-  50% {
-    box-shadow: 0 20px 20px 5px rgba(255, 255, 255, 0.7);
-  }
-  75% {
-    box-shadow: -10px 10px 20px 5px rgba(255, 255, 255, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
-  }
-} */
-
-@keyframes illuminateCorners {
-  /* Top-left */
-  0% {
-    box-shadow: -10px -10px 10px 2px rgba(255,255,255,0);
-  }
-  10% {
-    box-shadow: -10px -10px 30px 15px rgb(167, 167, 167); /* Pulse in */
-  }
-  20% {
-    box-shadow: -10px -10px 10px 2px rgba(255,255,255,0); /* Pulse out */
-  }
-  /* Top-right */
-  25% {
-    box-shadow: 10px -10px 10px 2px rgba(255,255,255,0);
-  }
-  35% {
-    box-shadow: 10px -10px 30px 15px rgba(167, 167, 167); /* Pulse in */
-  }
-  45% {
-    box-shadow: 10px -10px 10px 2px rgba(255,255,255,0); /* Pulse out */
-  }
-  /* Bottom-right */
-  50% {
-    box-shadow: 10px 10px 10px 2px rgba(255,255,255,0);
-  }
-  60% {
-    box-shadow: 10px 10px 30px 15px rgba(167, 167, 167); /* Pulse in */
-  }
-  70% {
-    box-shadow: 10px 10px 10px 2px rgba(255,255,255,0); /* Pulse out */
-  }
-  /* Bottom-left */
-  75% {
-    box-shadow: -10px 10px 10px 2px rgba(255,255,255,0);
-  }
-  85% {
-    box-shadow: -10px 10px 30px 15px rgba(167, 167, 167); /* Pulse in */
-  }
-  95% {
-    box-shadow: -10px 10px 10px 2px rgba(255,255,255,0); /* Pulse out */
-  }
-  100% {
-    box-shadow: -10px -10px 10px 2px rgba(255,255,255,0); /* Back to Top-left */
-  }
+@keyframes pulseShadow {
+0% {
+  box-shadow: 0 0 25px 5px rgba(59, 130, 246, 0.7);
 }
+50% {
+  box-shadow: 0 0 80px 30px rgba(79, 65, 234, 0.448);
+}
+100% {
+  box-shadow: 0 0 25px 5px rgba(59, 130, 246, 0.7);
+}
+}
+
+
+
 
 /* Apply the animation to the container */
 .rotate-shadow-animation {
   position: relative;
-  animation: illuminateCorners 8.5s infinite linear;
-  /* animation: rotateShadow 3s infinite linear; */
-  /* box-shadow: 0 0 50px 50px rgba(0, 0, 255, 0.7), 0 0 20px 5px rgba(255, 255, 255, 0.7); */
+  animation: pulseShadow 4s infinite ease-in-out;
+  box-shadow: 0 0 25px 5px rgba(59, 130, 246, 0.7);
 }
 
