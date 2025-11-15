@@ -5,9 +5,10 @@ import React from "react";
 export default function Home() {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div id="stars"></div>
       <header className="col-span-full flex flex-col items-center gap-4 row-start-1">
         <div className="flex flex-row items-center gap-4 ">
-          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-700 rounded-lg shadow-xl shadow-blue-500/70 rotate-shadow-animation">
+          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-70 rounded-lg shadow-xl shadow-blue-500/70 rotate-shadow-animation">
             <div className="group">
               <Image
                 src="/profile.jpg"
@@ -26,7 +27,8 @@ export default function Home() {
       </header>
 
       <main className="col-span-full flex flex-col items-center gap-4 mt-20 mb-10 row-start-2">
-        <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 rounded-lg">
+
+        <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
           <h2 className="text-3xl font-bold text-center">About Me</h2>
           <p className="text-lg text-white-500 text-center ">
             Junior Software Developer & IT Support Specialist with hands-on experience developing web, desktop, and mobile
@@ -40,7 +42,7 @@ export default function Home() {
 
         
         {/* Education Completion */}
-        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
           <h1 className="text-3xl font-bold text-center">Education Completion</h1>
           <div className="flex flex-col items-center gap-4 border-t-4 border-b-4 border-white-500 pb-5 pt-5">
             <Image
@@ -48,7 +50,7 @@ export default function Home() {
               alt="Matheos Amanuel"
               width={200}
               height={50}
-              className="pt-4 bg-clip-border rounded-lg"
+              className="pt-4 bg-clip-border rounded-lg bg-white"
             />
             <div className="flex flex-row items-center gap-4">
             {/*Icons by Freepik */}
@@ -76,7 +78,7 @@ export default function Home() {
         </div>
 
         {/* Programming Languages */}
-        <div className="flex flex-col flex-wrap items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+        <div className="flex flex-col flex-wrap items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
           <h1 className="text-3xl font-bold text-center">Programming Languages</h1>
           <div className="flex flex-row flex-wrap items-center justify-center gap-4 border-t-4 border-b-4 border-white-500 pb-5">
             <Image
@@ -146,7 +148,7 @@ export default function Home() {
         </div>
 
         {/* Projects */}
-        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
           <h1 className="text-3xl font-bold text-center">Projects</h1>
           <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
             <Image
@@ -164,28 +166,28 @@ export default function Home() {
               alt="Unity"
               width={50}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
             />
             <Image
               src="/CSharp.png"
               alt="CSharp"
               width={50}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
             />
               <Image
               src="/php.png"
               alt="php"
               width={50}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[60px] h-[35px] hover:w-[70px] hover:h-[45px]"
             />
             <Image
               src="/sql.png"
               alt="SQL"
               width={50}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
             />
             
             </div>
@@ -225,28 +227,28 @@ export default function Home() {
               alt="php"
               width={50}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[60px] h-[35px] hover:w-[70px] hover:h-[45px]"
             />
             <Image
               src="/sql.png"
               alt="SQL"
               width={50}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
             />
             <Image
               src="/HtmlCssJS.png"
               alt="HtmlCssJS"
               width={120}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[120px] h-[60px] hover:w-[140px] hover:h-[70px]"
             />
             <Image
               src="/bootstarp.png"
               alt="bootstarp"
               width={50}
               height={0}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
             />
             </div>
             <div className="flex flex-row items-center gap-2">
@@ -288,7 +290,7 @@ export default function Home() {
         </div>
 
         {/* Extracurricular */}
-        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 rounded-lg">
+        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black">
           <h1 className="text-3xl font-bold text-center">Extracurricular</h1>
           <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 pb-5 ">
               <Image
@@ -337,7 +339,7 @@ export default function Home() {
               alt="Python logo"
               width={45}
               height={75}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[45px] h-[45px] hover:w-[55px] hover:h-[55px]"
             />
             <div className="flex flex-row items-center gap-2">
               <Image
@@ -356,7 +358,6 @@ export default function Home() {
                   className="rounded bg-clip-border"
                 />
             </div>
-            {/* Create Description */}
             {/* <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2> */}
               <p className="text-lg text-white-500 text-center pb-5">
                 Researched and developed a proof of concept for CrowdVision, a startup focused on creating a event/concerts social media platform. The proof of concept involved developing a prototype backend system that demonstrated the core features and functionalities of the envisioned platform. This included a Upscaling system, Video stabilization system, Audio aligning system, and video sequence aligning and merging. The proof of concept aimed to showcase the technical feasibility and potential of the CrowdVision platform.
@@ -376,7 +377,7 @@ export default function Home() {
               alt="Python logo"
               width={45}
               height={75}
-              className="rounded bg-clip-border"
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[45px] h-[45px] hover:w-[55px] hover:h-[55px]"
             />
             <div className="flex flex-row items-center gap-2">
               <Image
@@ -403,6 +404,18 @@ export default function Home() {
           </div>
         </div>
 
+        <div>
+          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
       </main>
 
       <footer className="col-span-full flex flex-col items-center justify-center gap-4 text-white-500 border-top-2 border-white-500 row-start-3">
@@ -414,6 +427,7 @@ export default function Home() {
               width={42}
               height={42}
               priority
+              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[42px] h-[42px] hover:w-[50px] hover:h-[50px]"
             />
           </a>
           <a href="https://github.com/Matheos164" target="_blank" rel="noopener noreferrer">
@@ -424,14 +438,15 @@ export default function Home() {
                 width={40}
                 height={40}
                 priority
+                className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[42px] h-[42px] hover:w-[50px] hover:h-[50px]"
               />
             </div>
           </a>
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
-          <span className="text-sm text-white-500">
+          <p className="text-sm text-white-500">
             &copy; 2025 Matheos Amanuel
-          </span>
+          </p>
         </div>
       </footer>
     </div>
