@@ -89,21 +89,21 @@ export default function Home() {
               className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[75px] h-[75px] hover:w-[90px] hover:h-[90px]"
             />
             <Image
-              src="/java.png"
+              src="/Java.png"
               alt="java logo"
               width={75}
               height={75}
               className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[75px] h-[120px] hover:w-[90px] hover:h-[140px]"
             />
             <Image
-              src="/HtmlCssJs.png"
+              src="/htmlCssJS.png"
               alt="HTML/Css logo"
               width={300}
               height={175}
               className="bg-clip-border transition-all duration-300 ease-in-out w-[200px] h-auto hover:w-[250px]"
             />
             <Image
-              src="/Sql.png"
+              src="/SQL.png"
               alt="SQL logo"
               width={70}
               height={50}
@@ -152,7 +152,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold text-center">Projects</h1>
           <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
             <Image
-              src="/project1.png"
+              src="/Project1.png"
               alt="Project 1"
               width={200}
               height={50}
@@ -176,14 +176,14 @@ export default function Home() {
               className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
             />
               <Image
-              src="/php.png"
+              src="/Php.png"
               alt="php"
               width={50}
               height={0}
               className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[60px] h-[35px] hover:w-[70px] hover:h-[45px]"
             />
             <Image
-              src="/sql.png"
+              src="/SQL.png"
               alt="SQL"
               width={50}
               height={0}
@@ -213,7 +213,7 @@ export default function Home() {
 
           <div className="flex flex-col items-center gap-4 border-b-4 border-white-500 ">
             <Image
-              src="/project2.png"
+              src="/Project2.png"
               alt="Project 2"
               width={250}
               height={150}
@@ -223,21 +223,21 @@ export default function Home() {
             {/* <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3> */}
             <div className="flex flex-row items-center gap-2">
               <Image
-              src="/php.png"
+              src="/Php.png"
               alt="php"
               width={50}
               height={0}
               className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[60px] h-[35px] hover:w-[70px] hover:h-[45px]"
             />
             <Image
-              src="/sql.png"
+              src="/SQL.png"
               alt="SQL"
               width={50}
               height={0}
               className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
             />
             <Image
-              src="/HtmlCssJS.png"
+              src="/htmlCssJS.png"
               alt="HtmlCssJS"
               width={120}
               height={0}
