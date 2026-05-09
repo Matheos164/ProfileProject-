@@ -276,7 +276,7 @@ export default function Home() {
                   height={25}
 
                 />
-              <h3 className="text-l text-white-500 text-center font-bold text-color-blue"><a className="underline decoration-sky-500" href="https://github.com/Matheos164/Emp_Finder" target="_blank" rel="noopener noreferrer">GitHub Repo</a> | <a className="underline decoration-sky-500" href="https://www.empfinder.free.nf" target="_blank" rel="noopener noreferrer">View The Site</a> </h3>
+              <h3 className="text-l text-white-500 text-center font-bold text-color-blue"><a className="underline decoration-sky-500" href="https://github.com/Matheos164/Emp_Finder" target="_blank" rel="noopener noreferrer">GitHub Repo</a> | <a className="underline decoration-sky-500" href="https://emp-finder.rf.gd" target="_blank" rel="noopener noreferrer">View The Site</a> </h3>
               <Image
                   src="/link.png"
                   alt="Project 1"
