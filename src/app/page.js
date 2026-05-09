@@ -21,7 +21,7 @@ export default function Home() {
               />
             </div>
             <h1 className="text-5xl font-bold text-center bg-gradient-to-r">Matheos Amanuel</h1>
-            <h2 className="text-2xl text-white-500 text-center">Software Developer & IT Support Specialist</h2>
+            <h2 className="text-2xl text-white-500 text-center">Juniour Software Developer & IT Support Specialist</h2>
           </div>
         </div>
       </header>
