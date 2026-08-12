@@ -62,6 +62,22 @@ export default function Home() {
         
         {/* --- HERO / HEADER SECTION --- */}
         <header className="flex flex-col items-center text-center mt-6 sm:mt-10">
+          <ScrollReveal delay={100}>
+            {/* Status Badge */}
+            <div
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md border mb-6 transition-colors duration-500 ${
+                isSunset
+                  ? "bg-rose-950/40 border-rose-500/30 text-rose-300"
+                  : "bg-slate-900/40 border-cyan-500/30 text-cyan-300"
+              }`}
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>Available for Opportunities</span>
+            </div>
+          </ScrollReveal>
 
           <ScrollReveal delay={200}>
             {/* Profile Avatar with Pulsing Aura Ring */}
@@ -97,23 +113,6 @@ export default function Home() {
             <h2 className="text-lg sm:text-2xl font-medium text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
               Junior Software Developer & IT Support Specialist
             </h2>
-          </ScrollReveal>
-          
-          <ScrollReveal delay={100}>
-            {/* Status Badge */}
-            <div
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md border mb-6 transition-colors duration-500 ${
-                isSunset
-                  ? "bg-rose-950/40 border-rose-500/30 text-rose-300"
-                  : "bg-slate-900/40 border-cyan-500/30 text-cyan-300"
-              }`}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Available for Opportunities</span>
-            </div>
           </ScrollReveal>
 
           {/* Quick Contact & Social Bar */}
