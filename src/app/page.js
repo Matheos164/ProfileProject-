@@ -1,454 +1,685 @@
-import Image from "next/image";
-import React from "react";
+"use client";
 
+import Image from "next/image";
+import React, { useState } from "react";
+import BackgroundCanvas from "./components/BackgroundCanvas";
+import ThemeToggle from "./components/ThemeToggle";
+import ScrollReveal from "./components/ScrollReveal";
+import FlashOverlay from "./components/FlashOverlay";
+import TeleportBeam from "./components/TeleportBeam";
 
 export default function Home() {
+  const [theme, setTheme] = useState("shooting-stars");
+  const [isFlashing, setIsFlashing] = useState(false);
+  const [targetTheme, setTargetTheme] = useState("sunset");
+  const [isTeleporting, setIsTeleporting] = useState(false);
+
+  const toggleTheme = () => {
+    if (isFlashing) return;
+    const nextTheme = theme === "shooting-stars" ? "sunset" : "shooting-stars";
+    setTargetTheme(nextTheme);
+    setIsFlashing(true);
+
+    // Switch theme at peak collision fusion
+    setTimeout(() => {
+      setTheme(nextTheme);
+    }, 220);
+
+    // End flash sequence
+    setTimeout(() => {
+      setIsFlashing(false);
+    }, 650);
+  };
+
+  const teleportToTop = () => {
+    if (isTeleporting) return;
+    setIsTeleporting(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    setTimeout(() => {
+      setIsTeleporting(false);
+    }, 900);
+  };
+
+  const isSunset = theme === "sunset";
+
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div id="stars"></div>
-      <header className="col-span-full flex flex-col items-center gap-4 row-start-1">
-        <div className="flex flex-row items-center gap-4 ">
-          <div className="flex flex-col items-center gap-4 py-4 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-70 rounded-lg shadow-xl shadow-blue-500/70 rotate-shadow-animation">
-            <div className="group">
-              <Image
-                src="/profile.jpg"
-                alt="Matheos Amanuel"
-                width={270}
-                height={270}
-                className="rounded-full border-2 border-gray-700/50 shadow-xl shadow-black/80 
-                           transition-all duration-300 ease-in-out 
-                           group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-black/100"
-              />
-            </div>
-            <h1 className="text-5xl font-bold text-center bg-gradient-to-r">Matheos Amanuel</h1>
-            <h2 className="text-2xl text-white-500 text-center">Juniour Software Developer & IT Support Specialist</h2>
-          </div>
-        </div>
-      </header>
+    <div className="relative min-h-screen text-slate-100 flex flex-col items-center justify-between selection:bg-cyan-500 selection:text-slate-900 overflow-x-hidden bg-transparent">
+      {/* Mode-Inspired Teleportation Scroll Beam Effect */}
+      <TeleportBeam active={isTeleporting} theme={theme} />
 
-      <main className="col-span-full flex flex-col items-center gap-4 mt-20 mb-10 row-start-2">
+      {/* Mode-Inspired Left & Right Collision Flash Explosion Overlay */}
+      <FlashOverlay active={isFlashing} targetTheme={targetTheme} />
 
-        <div className="flex flex-col items-center gap-4 py-4 md:py-4 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
-          <h2 className="text-3xl font-bold text-center">About Me</h2>
-          <p className="text-lg text-white-500 text-center ">
-            Junior Software Developer & IT Support Specialist with hands-on experience developing web, desktop, and mobile
-            applications, alongside a proven track record of providing enterprise-level IT support across multiple locations via
-            phone, on-site, and remote channels. Proficient in coding languages such as Python, C#, PHP, etc., experienced in
-            managing workstations, user accounts, and process documentation. Committed to delivering exceptional customer
-            service, effective technical support, and clear documentation while actively pursuing continuous learning and
-            professional growth.
-          </p>
-        </div>
+      {/* Dynamic Background Overlay & Canvas */}
+      <BackgroundCanvas theme={theme} />
 
+      {/* Top Right Floating Theme Toggle */}
+      <ThemeToggle theme={theme} onToggle={toggleTheme} />
+
+      {/* Main Container */}
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col gap-12 sm:gap-16">
         
-        {/* Education Completion */}
-        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
-          <h1 className="text-3xl font-bold text-center">Education Completion</h1>
-          <div className="flex flex-col items-center gap-4 border-t-4 border-b-4 border-white-500 pb-5 pt-5">
-            <Image
-              src="/mohawk.png"
-              alt="Matheos Amanuel"
-              width={200}
-              height={50}
-              className="pt-4 bg-clip-border rounded-lg bg-white"
-            />
-            <div className="flex flex-row items-center gap-4">
-            {/*Icons by Freepik */}
-            <Image
-              src="/diploma.png"
-              alt="Matheos Amanuel"
-              width={50}
-              height={50}
-              className="bg-clip-border shadow-xl shadow-gray-500/40 hover:shadow-white/70 transition-shadow duration-500 ease-in-out"
-            />
-            <h3 className="text-2xl text-white-500 text-center">Computer Systems Technology - Software Development Advanced Diploma</h3>
-          </div>
-          <div className="flex flex-row items-center gap-4">
-            {/*Icons by Freepik */}
-            <Image
-              src="/advancedDiploma.png"
-              alt="Matheos Amanuel"
-              width={50}
-              height={50}
-              className="bg-clip-border shadow-xl shadow-gray-500/50 hover:shadow-white/60 transition-shadow duration-500 ease-in-out"
-            />
-            <h3 className="text-2xl text-white-500 text-center">Computer Systems Technician - Software Support Diploma</h3>
-          </div>
-          </div>
-        </div>
-
-        {/* Programming Languages */}
-        <div className="flex flex-col flex-wrap items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
-          <h1 className="text-3xl font-bold text-center">Programming Languages</h1>
-          <div className="flex flex-row flex-wrap items-center justify-center gap-4 border-t-4 border-b-4 border-white-500 pb-5">
-            <Image
-              src="/python.png"
-              alt="Python logo"
-              width={75}
-              height={75}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[75px] h-[75px] hover:w-[90px] hover:h-[90px]"
-            />
-            <Image
-              src="/Java.png"
-              alt="java logo"
-              width={75}
-              height={75}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[75px] h-[120px] hover:w-[90px] hover:h-[140px]"
-            />
-            <Image
-              src="/htmlCssJS.png"
-              alt="HTML/Css logo"
-              width={300}
-              height={175}
-              className="bg-clip-border transition-all duration-300 ease-in-out w-[200px] h-auto hover:w-[250px]"
-            />
-            <Image
-              src="/SQL.png"
-              alt="SQL logo"
-              width={70}
-              height={50}
-              className="bg-clip-border transition-all duration-300 ease-in-out w-[70px] h-auto hover:w-[84px]"
-            />
-            <Image
-              src="/Php.png"
-              alt="PHP logo"
-              width={100}
-              height={100}
-              className="bg-clip-border transition-all duration-300 ease-in-out w-[100px] h-auto hover:w-[120px]"
-            />
-            <Image
-              src="/CSharp.png"
-              alt="C# logo"
-              width={90}
-              height={100}
-              className="bg-clip-border transition-all duration-300 ease-in-out w-[90px] h-auto hover:w-[108px]"
-            />
-            <Image
-              src="/React.png"
-              alt="React logo"
-              width={130}
-              height={100}
-              className="bg-clip-border transition-all duration-300 ease-in-out w-[130px] h-auto hover:w-[156px]"
-            />
-            <Image
-              src="/Node.png"
-              alt="Node logo"
-              width={150}
-              height={100}
-              className="bg-clip-border transition-all duration-300 ease-in-out w-[150px] h-auto hover:w-[180px]"
-            />
-            {/* <Image
-              src="/TWCSS.png"
-              alt="TWCSS logo"
-              width={100}
-              height={75}
-              className="bg-clip-border"
-            /> */}
-          </div>
-        </div>
-
-        {/* Projects */}
-        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black-500/50">
-          <h1 className="text-3xl font-bold text-center">Projects</h1>
-          <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 ">
-            <Image
-              src="/Project1.png"
-              alt="Project 1"
-              width={200}
-              height={50}
-              className="rounded bg-clip-border pt-5"
-            />
-            <h1 className="text-2xl text-white-500 text-center font-bold">Space Defense - 2D Unity Game</h1>
-            {/* <h3 className="text-l text-white-500 text-center font-bold">Unity Game Engine | C# | PHP | SQL</h3> */}
-            <div className="flex flex-row items-center gap-2">
-              <Image
-              src="/unity.png"
-              alt="Unity"
-              width={50}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
-            />
-            <Image
-              src="/CSharp.png"
-              alt="CSharp"
-              width={50}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
-            />
-              <Image
-              src="/Php.png"
-              alt="php"
-              width={50}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[60px] h-[35px] hover:w-[70px] hover:h-[45px]"
-            />
-            <Image
-              src="/SQL.png"
-              alt="SQL"
-              width={50}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
-            />
-            
+        {/* --- HERO / HEADER SECTION --- */}
+        <header className="flex flex-col items-center text-center mt-6 sm:mt-10">
+          <ScrollReveal delay={100}>
+            {/* Status Badge */}
+            <div
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md border mb-6 transition-colors duration-500 ${
+                isSunset
+                  ? "bg-rose-950/40 border-rose-500/30 text-rose-300"
+                  : "bg-slate-900/40 border-cyan-500/30 text-cyan-300"
+              }`}
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>Available for Opportunities</span>
             </div>
-            <div className="flex flex-row items-center gap-2">
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
-              <h3 className="text-l text-white-500 text-center font-bold text-color-blue"><a className="underline decoration-sky-500" href="https://github.com/Matheos164/Space_Defense_Game" target="_blank" rel="noopener noreferrer">GitHub Repo</a> | <a className="underline decoration-sky-500" href="https://me-phrog.itch.io/space-defense-web-version" target="_blank" rel="noopener noreferrer">Try The Game</a> </h3>
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
-            </div>
-            <p className="text-lg text-white-500 text-center pb-5">Developed a 2D game on Unity Engine using C# for gameplay functions and PHP and SQl for networks and server features. The player's main objective is to defende the earth from oncoming enemies while trying to acheave a high score. The game features consists for the following, The player which orbits around a planet with the ability to shoot and activate a sheald, the planet which the player must defend, three enemie types which consists of a Astroid, Elien Ship, and Boss Elien Ship.</p>
-          </div>
+          </ScrollReveal>
 
-          <div className="flex flex-col items-center gap-4 border-b-4 border-white-500 ">
-            <Image
-              src="/Project2.png"
-              alt="Project 2"
-              width={250}
-              height={150}
-              className="rounded bg-clip-border pt-5"
-            />
-            <h1 className="text-2xl text-white-500 text-center font-bold">Employee Finder App – Dynamic Web App </h1>
-            {/* <h3 className="text-l text-white-500 text-center font-bold">PHP | JavaScript | SQL | HTML | CSS | Bootstrap</h3> */}
-            <div className="flex flex-row items-center gap-2">
-              <Image
-              src="/Php.png"
-              alt="php"
-              width={50}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[60px] h-[35px] hover:w-[70px] hover:h-[45px]"
-            />
-            <Image
-              src="/SQL.png"
-              alt="SQL"
-              width={50}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
-            />
-            <Image
-              src="/htmlCssJS.png"
-              alt="HtmlCssJS"
-              width={120}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[120px] h-[60px] hover:w-[140px] hover:h-[70px]"
-            />
-            <Image
-              src="/bootstarp.png"
-              alt="bootstarp"
-              width={50}
-              height={0}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[50px] h-[50px] hover:w-[60px] hover:h-[60px]"
-            />
-            </div>
-            <div className="flex flex-row items-center gap-2">
-            <Image
-              src="/lock.png"
-              alt="lock"
-              width={25}
-              height={0}
-              className="rounded bg-clip-border"
-            />
-            <h3 className="text-l text-white-500 text-center font-bold">Username: Admin | Password: admin </h3>
-            <Image
-              src="/lock.png"
-              alt="lock"
-              width={25}
-              height={0}
-              className="rounded bg-clip-border"
-            />
-            </div>
-            <div className="flex flex-row items-center gap-2">
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-
-                />
-              <h3 className="text-l text-white-500 text-center font-bold text-color-blue"><a className="underline decoration-sky-500" href="https://github.com/Matheos164/Emp_Finder" target="_blank" rel="noopener noreferrer">GitHub Repo</a> | <a className="underline decoration-sky-500" href="https://emp-finder.rf.gd" target="_blank" rel="noopener noreferrer">View The Site</a> </h3>
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                className="rounded bg-clip-border"
-                />
-            </div>
-            <p className="text-lg text-white-500 text-center pb-5">Developed and designed a full-stack dynamic web application that enables users to locate employees based on selected locations. The site allows regular users to select a location and search for an employee by name. If a match is found, the system displays the employee’s information along with a map of the corresponding area or floor. An admin login feature allows site administrators to add, edit, and remove employee profiles, which are stored in a SQL database.</p>
-          </div>
-        </div>
-
-        {/* Extracurricular */}
-        <div className="flex flex-col items-center gap-4 py-4 mt-5 md:py-8 px-8 md:px-16 bg-gray-800 bg-opacity-75 rounded-lg shadow-xl shadow-black">
-          <h1 className="text-3xl font-bold text-center">Extracurricular</h1>
-          <div className="flex flex-col items-center gap-4 border-t-4 border-b-2 border-white-500 pb-5 ">
-              <Image
-              src="/temi.png"
-              alt="Extracurricular"
-              width={200}
-              height={50}
-              className="rounded bg-clip-border pt-5"
+          <ScrollReveal delay={200}>
+            {/* Profile Avatar with Pulsing Aura Ring */}
+            <div className="relative mb-6 group cursor-pointer">
+              <div
+                className={`absolute -inset-1.5 rounded-full opacity-75 blur-md transition duration-500 group-hover:opacity-100 ${
+                  isSunset
+                    ? "bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 animate-pulse"
+                    : "bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 rotate-shadow-animation"
+                }`}
               />
-              <h1 className="text-2xl text-white-500 text-center font-bold">Tēmi Robot - Research & Documentation</h1>
-            
-            <div className="flex flex-row items-center gap-2">
               <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
-              <h3 className="text-xl text-white-500 text-center font-bold"><a href="/Temi_manual.pdf" className="underline decoration-sky-500" target="_blank" rel="noopener noreferrer">Project Documentation</a></h3>
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
+                src="/profile.JPG"
+                alt="Matheos Amanuel"
+                width={200}
+                height={200}
+                priority
+                className="relative rounded-full border-4 border-slate-900/60 object-cover shadow-2xl transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-            {/* <div className="border-2 border-dashed border-black w-full flex flex-col items-center gap-4 pt-4 bg-white shadow-xl shadow-black "> */}
-              {/* <h2 className="text-xl text-black text-center underline decoration-black font-bold text-shadow-stone-500">About Project</h2> */}
-              <p className="text-lg text-white-500 text-center pb-5">Conducted research on the Tēmi robot's SDK (Software Development Kit), focusing on its capabilities and functionalities. Developed a comprehensive user manual to guide developers in getting started with the Tēmi robot, covering installation, configuration, and basic functionalities to control the robot. The manual aims to provide a clear getting-started guide for developers interested in working with the Tēmi robot platform.
+          </ScrollReveal>
+
+          <ScrollReveal delay={300}>
+            <h1
+              className={`text-4xl sm:text-6xl font-extrabold tracking-tight mb-3 transition-colors duration-500 ${
+                isSunset
+                  ? "bg-gradient-to-r from-amber-200 via-rose-300 to-orange-400 bg-clip-text text-transparent"
+                  : "bg-gradient-to-r from-white via-slate-200 to-cyan-400 bg-clip-text text-transparent"
+              }`}
+            >
+              Matheos Amanuel
+            </h1>
+            <h2 className="text-lg sm:text-2xl font-medium text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+              Junior Software Developer & IT Support Specialist
+            </h2>
+          </ScrollReveal>
+
+          {/* Quick Contact & Social Bar */}
+          <ScrollReveal delay={400}>
+            <div className="flex items-center justify-center gap-4 mt-6">
+              <a
+                href="https://www.linkedin.com/in/matheos-amanuel-81335b241/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${
+                  isSunset
+                    ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
+                    : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
+                }`}
+              >
+                <Image
+                  src="/linkedin.png"
+                  alt="LinkedIn"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 rounded"
+                />
+                <span>LinkedIn</span>
+              </a>
+
+              <a
+                href="https://github.com/Matheos164"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${
+                  isSunset
+                    ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
+                    : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
+                }`}
+              >
+                <div className="bg-white p-0.5 rounded">
+                  <Image
+                    src="/github.png"
+                    alt="GitHub"
+                    width={18}
+                    height={18}
+                    className="w-4 h-4"
+                  />
+                </div>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </ScrollReveal>
+        </header>
+
+        {/* --- MAIN CONTENT SECTIONS --- */}
+        <main className="flex flex-col gap-10 sm:gap-14">
+          
+          {/* ABOUT ME SECTION */}
+          <ScrollReveal threshold={0.1}>
+            <section
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
+                isSunset ? "glass-card-sunset" : "glass-card"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                    isSunset
+                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+                  }`}
+                >
+                  ✦ Biography
+                </span>
+              </div>
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed">
+                Junior Software Developer & IT Support Specialist with hands-on experience developing web, desktop, and mobile
+                applications, alongside a proven track record of providing enterprise-level IT support across multiple locations via
+                phone, on-site, and remote channels. Proficient in coding languages such as Python, C#, PHP, etc., experienced in
+                managing workstations, user accounts, and process documentation. Committed to delivering exceptional customer
+                service, effective technical support, and clear documentation while actively pursuing continuous learning and
+                professional growth.
               </p>
-            {/* </div> */}
-          </div>
-          <div className="flex flex-col items-center gap-4  ">
-            <Image
-              src="/crowdvision.png"
-              alt="Extracurricular"
-              width={200}
-              height={50}
-              className="rounded bg-clip-border pt-5"
-            />
-            <h1 className="text-2xl text-white-500 text-center font-bold">CrowdVision - Startup Proof of Concept</h1>
-            <Image
-              src="/python.png"
-              alt="Python logo"
-              width={45}
-              height={75}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[45px] h-[45px] hover:w-[55px] hover:h-[55px]"
-            />
-            <div className="flex flex-row items-center gap-2">
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
-              <h3 className="text-xl text-white-500 text-center font-bold"><a href="https://theforge.mcmaster.ca/startups/crowdvision/" className="underline decoration-sky-500" target="_blank" rel="noopener noreferrer">Project Article</a></h3>
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
-            </div>
-            {/* <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2> */}
-              <p className="text-lg text-white-500 text-center pb-5">
-                Researched and developed a proof of concept for CrowdVision, a startup focused on creating a event/concerts social media platform. The proof of concept involved developing a prototype backend system that demonstrated the core features and functionalities of the envisioned platform. This included a Upscaling system, Video stabilization system, Audio aligning system, and video sequence aligning and merging. The proof of concept aimed to showcase the technical feasibility and potential of the CrowdVision platform.
-              </p>       
-            </div>
-          <div className="flex flex-col items-center gap-4 border-t-2 border-b-4 border-white-500 ">
-            <Image
-              src="/remembering.png"
-              alt="Extracurricular"
-              width={200}
-              height={50}
-              className="rounded bg-clip-border pt-5"
-            />
-            <h1 className="text-2xl text-white-500 text-center font-bold">Remembering Their Faces - Face Matching Research</h1>
-            <Image
-              src="/python.png"
-              alt="Python logo"
-              width={45}
-              height={75}
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[45px] h-[45px] hover:w-[55px] hover:h-[55px]"
-            />
-            <div className="flex flex-row items-center gap-2">
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
-              <h3 className="text-xl text-white-500 text-center font-bold"><a href="https://www.mohawknewsdesk.ca/unlocking-canadas-military-aviation-history/" className="underline decoration-sky-500" target="_blank" rel="noopener noreferrer">Project Article</a></h3>
-              <Image
-                  src="/link.png"
-                  alt="Project 1"
-                  width={20}
-                  height={25}
-                  className="rounded bg-clip-border"
-                />
-            </div>
-            {/* Create Description */}
-            {/* <h2 className="text-xl text-white-500 text-center pb-5 font-bold">About Project</h2> */}
-            <p className="text-lg text-white-500 text-center pb-5">
-              Conducted research on facial recognition technology to assist in identifying and matching historical photographs of Canadian military personnel from World War II with existing records. Developed a prototype system using Python and relevant libraries to analyze and compare facial features in photographs, aiming to identify the best mode to use for facial recognition. The research aimed to contribute to preserving and honoring the legacy of Canadian military personnel by facilitating the identification of individuals in historical photographs.
-            </p>
-          </div>
-        </div>
+            </section>
+          </ScrollReveal>
 
-        <div>
-          <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-      </main>
+          {/* EDUCATION COMPLETION SECTION */}
+          <ScrollReveal threshold={0.1}>
+            <section
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
+                isSunset ? "glass-card-sunset" : "glass-card"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span
+                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                    isSunset
+                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+                  }`}
+                >
+                  ✦ Education Background
+                </span>
+              </div>
+              
+              <div className="flex flex-col items-center gap-6">
+                {/* Institution Badge */}
+                <div className="bg-white/95 p-3 rounded-xl shadow-lg border border-slate-200/50 hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/mohawk.png"
+                    alt="Mohawk College Logo"
+                    width={180}
+                    height={50}
+                    className="object-contain"
+                  />
+                </div>
 
-      <footer className="col-span-full flex flex-col items-center justify-center gap-4 text-white-500 border-top-2 border-white-500 row-start-3">
-        <div className="flex gap-6 flex-wrap items-center justify-center">
-          <a href="https://www.linkedin.com/in/matheos-amanuel-81335b241/" target="_blank" rel="noopener noreferrer">
-            <Image
-              src="/linkedin.png"
-              alt="LinkedIn logo"
-              width={42}
-              height={42}
-              priority
-              className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[42px] h-[42px] hover:w-[50px] hover:h-[50px]"
-            />
-          </a>
-          <a href="https://github.com/Matheos164" target="_blank" rel="noopener noreferrer">
-            <div style={{ backgroundColor: 'white', paddingTop: '0.5px', paddingBottom: '0.5px', paddingRight: '1px', paddingLeft: '1px', borderRadius: '5px' }}>
+                <div className="w-full flex flex-col gap-4 mt-2">
+                  {/* Diploma 1 */}
+                  <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-xl bg-slate-900/30 backdrop-blur-sm border border-slate-700/40 hover:border-slate-500/60 transition-all">
+                    <div className="p-2 rounded-lg bg-slate-900/50 border border-slate-700/50 shadow-md">
+                      <Image
+                        src="/diploma.png"
+                        alt="Diploma Icon"
+                        width={44}
+                        height={44}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-center sm:text-left">
+                      <h3 className="text-lg sm:text-xl font-semibold text-white">
+                        Computer Systems Technology - Software Development Advanced Diploma
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-300 mt-0.5">Mohawk College of Applied Arts and Technology</p>
+                    </div>
+                  </div>
+
+                  {/* Diploma 2 */}
+                  <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-xl bg-slate-900/30 backdrop-blur-sm border border-slate-700/40 hover:border-slate-500/60 transition-all">
+                    <div className="p-2 rounded-lg bg-slate-900/50 border border-slate-700/50 shadow-md">
+                      <Image
+                        src="/advancedDiploma.png"
+                        alt="Advanced Diploma Icon"
+                        width={44}
+                        height={44}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="text-center sm:text-left">
+                      <h3 className="text-lg sm:text-xl font-semibold text-white">
+                        Computer Systems Technician - Software Support Diploma
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-300 mt-0.5">Mohawk College of Applied Arts and Technology</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </ScrollReveal>
+
+          {/* PROGRAMMING LANGUAGES SECTION */}
+          <ScrollReveal threshold={0.1}>
+            <section
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
+                isSunset ? "glass-card-sunset" : "glass-card"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span
+                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                    isSunset
+                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+                  }`}
+                >
+                  ✦ Tech Stack & Skills
+                </span>
+              </div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                {[
+                  { name: "Python", src: "/python.png", width: 48, height: 48 },
+                  { name: "Java", src: "/Java.png", width: 44, height: 56 },
+                  { name: "HTML / CSS / JS", src: "/htmlCssJS.png", width: 90, height: 48 },
+                  { name: "SQL", src: "/SQL.png", width: 48, height: 48 },
+                  { name: "PHP", src: "/Php.png", width: 64, height: 40 },
+                  { name: "C#", src: "/CSharp.png", width: 48, height: 48 },
+                  { name: "React", src: "/React.png", width: 60, height: 48 },
+                  { name: "Node.js", src: "/Node.png", width: 70, height: 44 },
+                ].map((tech, idx) => (
+                  <div
+                    key={idx}
+                    className="flex flex-col items-center justify-center p-4 rounded-xl bg-slate-900/30 border border-slate-700/30 hover:border-slate-400/50 hover:bg-slate-800/50 hover:-translate-y-1.5 transition-all duration-300 shadow-md group"
+                  >
+                    <div className="h-16 flex items-center justify-center mb-2">
+                      <Image
+                        src={tech.src}
+                        alt={tech.name}
+                        width={tech.width}
+                        height={tech.height}
+                        className="object-contain group-hover:scale-110 transition-transform duration-300 max-h-14"
+                      />
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
+                      {tech.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </ScrollReveal>
+
+          {/* PROJECTS SECTION */}
+          <ScrollReveal threshold={0.1}>
+            <section
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
+                isSunset ? "glass-card-sunset" : "glass-card"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <span
+                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                    isSunset
+                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+                  }`}
+                >
+                  ✦ Featured Projects
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-10">
+                {/* PROJECT 1 */}
+                <div className="p-5 sm:p-7 rounded-xl bg-slate-900/30 border border-slate-700/40 hover:border-cyan-500/40 transition-all duration-300">
+                  <div className="flex flex-col lg:flex-row items-center gap-6">
+                    <div className="w-full lg:w-1/3 flex justify-center">
+                      <div className="relative group overflow-hidden rounded-xl border border-slate-700/60 shadow-xl bg-slate-950/40 p-2">
+                        <Image
+                          src="/Project1.png"
+                          alt="Space Defense Game"
+                          width={260}
+                          height={160}
+                          className="rounded-lg object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="w-full lg:w-2/3 flex flex-col gap-3">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white">
+                        Space Defense – 2D Unity Game
+                      </h3>
+
+                      {/* Tech Stack Icons */}
+                      <div className="flex flex-wrap items-center gap-3 my-1">
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/unity.png" alt="Unity" width={18} height={18} />
+                          <span>Unity</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/CSharp.png" alt="C#" width={18} height={18} />
+                          <span>C#</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/Php.png" alt="PHP" width={22} height={14} />
+                          <span>PHP</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/SQL.png" alt="SQL" width={18} height={18} />
+                          <span>SQL</span>
+                        </div>
+                      </div>
+
+                      {/* Action Links */}
+                      <div className="flex flex-wrap items-center gap-3 my-1">
+                        <a
+                          href="https://github.com/Matheos164/Space_Defense_Game"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-cyan-600/80 text-white text-xs sm:text-sm font-semibold transition-colors border border-slate-700/50"
+                        >
+                          <Image src="/link.png" alt="Link" width={14} height={14} />
+                          <span>GitHub Repo</span>
+                        </a>
+                        <a
+                          href="https://me-phrog.itch.io/space-defense-web-version"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600/90 hover:bg-cyan-500 text-white text-xs sm:text-sm font-semibold transition-colors shadow-md shadow-cyan-900/30"
+                        >
+                          <Image src="/link.png" alt="Link" width={14} height={14} />
+                          <span>Try The Game</span>
+                        </a>
+                      </div>
+
+                      <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+                        Developed a 2D game on Unity Engine using C# for gameplay functions and PHP and SQL for networks and server features. The player's main objective is to defend the earth from oncoming enemies while trying to achieve a high score. Features include orbit-based player controls, shield activation, planet defense mechanics, and 3 distinct enemy types (Asteroid, Alien Ship, and Boss Alien Ship).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PROJECT 2 */}
+                <div className="p-5 sm:p-7 rounded-xl bg-slate-900/30 border border-slate-700/40 hover:border-cyan-500/40 transition-all duration-300">
+                  <div className="flex flex-col lg:flex-row items-center gap-6">
+                    <div className="w-full lg:w-1/3 flex justify-center">
+                      <div className="relative group overflow-hidden rounded-xl border border-slate-700/60 shadow-xl bg-slate-950/40 p-2">
+                        <Image
+                          src="/Project2.png"
+                          alt="Employee Finder App"
+                          width={260}
+                          height={160}
+                          className="rounded-lg object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="w-full lg:w-2/3 flex flex-col gap-3">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white">
+                        Employee Finder App – Dynamic Web App
+                      </h3>
+
+                      {/* Tech Stack Icons */}
+                      <div className="flex flex-wrap items-center gap-3 my-1">
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/Php.png" alt="PHP" width={22} height={14} />
+                          <span>PHP</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/SQL.png" alt="SQL" width={18} height={18} />
+                          <span>SQL</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/htmlCssJS.png" alt="HTML/CSS/JS" width={32} height={16} />
+                          <span>JS / HTML / CSS</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/50 border border-slate-700/60 text-xs text-slate-200 font-medium">
+                          <Image src="/bootstarp.png" alt="Bootstrap" width={18} height={18} />
+                          <span>Bootstrap</span>
+                        </div>
+                      </div>
+
+                      {/* Demo Credentials Pill */}
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-950/40 border border-amber-500/40 text-amber-300 text-xs font-semibold w-fit">
+                        <Image src="/lock.png" alt="Lock" width={14} height={14} />
+                        <span>Demo Login: Admin | Password: admin</span>
+                      </div>
+
+                      {/* Action Links */}
+                      <div className="flex flex-wrap items-center gap-3 my-1">
+                        <a
+                          href="https://github.com/Matheos164/Emp_Finder"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-cyan-600/80 text-white text-xs sm:text-sm font-semibold transition-colors border border-slate-700/50"
+                        >
+                          <Image src="/link.png" alt="Link" width={14} height={14} />
+                          <span>GitHub Repo</span>
+                        </a>
+                        <a
+                          href="https://emp-finder.rf.gd"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600/90 hover:bg-cyan-500 text-white text-xs sm:text-sm font-semibold transition-colors shadow-md shadow-cyan-900/30"
+                        >
+                          <Image src="/link.png" alt="Link" width={14} height={14} />
+                          <span>View The Site</span>
+                        </a>
+                      </div>
+
+                      <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+                        Developed and designed a full-stack dynamic web application that enables users to locate employees based on selected locations. The site allows regular users to select a location and search for an employee by name. If a match is found, the system displays the employee’s information along with a map of the corresponding area or floor. An admin portal allows site administrators to add, edit, and remove employee profiles stored in a SQL database.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </ScrollReveal>
+
+          {/* EXTRACURRICULAR & RESEARCH SECTION */}
+          <ScrollReveal threshold={0.1}>
+            <section
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
+                isSunset ? "glass-card-sunset" : "glass-card"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <span
+                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                    isSunset
+                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+                  }`}
+                >
+                  ✦ Extracurricular & Research
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* ITEM 1 */}
+                <div className="flex flex-col justify-between p-5 rounded-xl bg-slate-900/30 border border-slate-700/40 hover:border-slate-500/60 transition-all duration-300 group">
+                  <div>
+                    <div className="w-full flex justify-center mb-4 bg-slate-950/40 p-3 rounded-lg border border-slate-700/50">
+                      <Image
+                        src="/temi.png"
+                        alt="Tēmi Robot"
+                        width={140}
+                        height={100}
+                        className="object-contain max-h-24 group-hover:scale-105 transition-transform"
+                      />
+                    </div>
+                    <h3 className="text-lg font-bold text-white text-center mb-2">
+                      Tēmi Robot – Research & Documentation
+                    </h3>
+                    <p className="text-slate-200 text-xs sm:text-sm leading-relaxed mb-4 text-center">
+                      Conducted research on the Tēmi robot's SDK (Software Development Kit), focusing on its capabilities and functionalities. Developed a comprehensive user manual to guide developers in getting started with installation, configuration, and basic movement control APIs.
+                    </p>
+                  </div>
+                  <div className="pt-2 text-center">
+                    <a
+                      href="/Temi_manual.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-slate-800/60 hover:bg-cyan-600 text-white text-xs font-semibold transition-colors border border-slate-700/50"
+                    >
+                      <Image src="/link.png" alt="Link" width={14} height={14} />
+                      <span>Project Documentation</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* ITEM 2 */}
+                <div className="flex flex-col justify-between p-5 rounded-xl bg-slate-900/30 border border-slate-700/40 hover:border-slate-500/60 transition-all duration-300 group">
+                  <div>
+                    <div className="w-full flex justify-center mb-4 bg-slate-950/40 p-3 rounded-lg border border-slate-700/50">
+                      <Image
+                        src="/crowdvision.png"
+                        alt="CrowdVision"
+                        width={140}
+                        height={100}
+                        className="object-contain max-h-24 group-hover:scale-105 transition-transform"
+                      />
+                    </div>
+                    <div className="flex justify-center mb-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-900/60 border border-slate-700/60 text-xs text-slate-200">
+                        <Image src="/python.png" alt="Python" width={14} height={14} />
+                        <span>Python</span>
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white text-center mb-2">
+                      CrowdVision – Startup Proof of Concept
+                    </h3>
+                    <p className="text-slate-200 text-xs sm:text-sm leading-relaxed mb-4 text-center">
+                      Researched and developed a proof of concept backend prototype for CrowdVision, an event social media platform. Engineered video upscaling, video stabilization, audio alignment, and multi-angle video sequence merging.
+                    </p>
+                  </div>
+                  <div className="pt-2 text-center">
+                    <a
+                      href="https://theforge.mcmaster.ca/startups/crowdvision/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-slate-800/60 hover:bg-cyan-600 text-white text-xs font-semibold transition-colors border border-slate-700/50"
+                    >
+                      <Image src="/link.png" alt="Link" width={14} height={14} />
+                      <span>Project Article</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* ITEM 3 */}
+                <div className="flex flex-col justify-between p-5 rounded-xl bg-slate-900/30 border border-slate-700/40 hover:border-slate-500/60 transition-all duration-300 group">
+                  <div>
+                    <div className="w-full flex justify-center mb-4 bg-slate-950/40 p-3 rounded-lg border border-slate-700/50">
+                      <Image
+                        src="/remembering.png"
+                        alt="Remembering Their Faces"
+                        width={140}
+                        height={100}
+                        className="object-contain max-h-24 group-hover:scale-105 transition-transform"
+                      />
+                    </div>
+                    <div className="flex justify-center mb-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-900/60 border border-slate-700/60 text-xs text-slate-200">
+                        <Image src="/python.png" alt="Python" width={14} height={14} />
+                        <span>Python</span>
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white text-center mb-2">
+                      Remembering Their Faces – Face Matching
+                    </h3>
+                    <p className="text-slate-200 text-xs sm:text-sm leading-relaxed mb-4 text-center">
+                      Conducted research on facial recognition technology to identify and match historical photographs of Canadian WWII military personnel. Built a Python prototype system analyzing facial feature vector similarities.
+                    </p>
+                  </div>
+                  <div className="pt-2 text-center">
+                    <a
+                      href="https://www.mohawknewsdesk.ca/unlocking-canadas-military-aviation-history/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-slate-800/60 hover:bg-cyan-600 text-white text-xs font-semibold transition-colors border border-slate-700/50"
+                    >
+                      <Image src="/link.png" alt="Link" width={14} height={14} />
+                      <span>Project Article</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </ScrollReveal>
+
+        </main>
+
+        {/* --- FOOTER & TELEPORTATION BUTTON --- */}
+        <footer className="pt-8 pb-4 border-t border-slate-800/60 flex flex-col items-center gap-5 text-slate-300">
+          {/* Futuristic Teleport to Top Button */}
+          <button
+            onClick={teleportToTop}
+            className={`group flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border text-xs sm:text-sm font-semibold transition-all duration-500 shadow-lg cursor-pointer ${
+              isSunset
+                ? "bg-amber-950/40 border-amber-500/40 text-amber-200 hover:bg-amber-900/60 hover:border-amber-400 hover:shadow-amber-900/40"
+                : "bg-slate-900/50 border-cyan-500/40 text-cyan-200 hover:bg-slate-800/80 hover:border-cyan-400 hover:shadow-cyan-900/40"
+            }`}
+          >
+            <span className="text-sm transition-transform duration-300 group-hover:-translate-y-1">⚡</span>
+            <span>Teleport to Top</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4 text-cyan-300 group-hover:-translate-y-1 transition-transform duration-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2.5}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </button>
+
+          <div className="flex items-center gap-6 mt-1">
+            <a
+              href="https://www.linkedin.com/in/matheos-amanuel-81335b241/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform"
+            >
+              <Image
+                src="/linkedin.png"
+                alt="LinkedIn"
+                width={36}
+                height={36}
+                className="rounded"
+              />
+            </a>
+            <a
+              href="https://github.com/Matheos164"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform bg-white p-1 rounded-md"
+            >
               <Image
                 src="/github.png"
-                alt="GitHub logo"
-                width={40}
-                height={40}
-                priority
-                className="rounded bg-clip-border transition-all duration-300 ease-in-out w-[42px] h-[42px] hover:w-[50px] hover:h-[50px]"
+                alt="GitHub"
+                width={32}
+                height={32}
               />
-            </div>
-          </a>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-2">
-          <p className="text-sm text-white-500">
-            &copy; 2025 Matheos Amanuel
+            </a>
+          </div>
+          <p className="text-xs sm:text-sm">
+            &copy; {new Date().getFullYear()} Matheos Amanuel. All rights reserved.
           </p>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }
