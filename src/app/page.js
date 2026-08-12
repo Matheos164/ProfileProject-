@@ -90,7 +90,7 @@ export default function Home() {
                 }`}
               />
               <Image
-                src="/profile.JPG"
+                src="/profile.jpg"
                 alt="Matheos Amanuel"
                 width={200}
                 height={200}
