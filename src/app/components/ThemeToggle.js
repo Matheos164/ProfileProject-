@@ -16,18 +16,7 @@ export default function ThemeToggle({ theme, onToggle }) {
             : "bg-slate-900/70 border-cyan-500/40 text-cyan-200 shadow-cyan-900/30 hover:bg-slate-800/80 hover:border-cyan-400"
         }`}
       >
-        <span className="relative flex h-3 w-3">
-          <span
-            className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-              isSunset ? "bg-amber-400" : "bg-cyan-400"
-            }`}
-          ></span>
-          <span
-            className={`relative inline-flex rounded-full h-3 w-3 ${
-              isSunset ? "bg-amber-500" : "bg-cyan-400"
-            }`}
-          ></span>
-        </span>
+
 
         <span className="text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2">
           {isSunset ? (

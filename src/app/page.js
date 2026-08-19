@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import BackgroundCanvas from "./components/BackgroundCanvas";
 import ThemeToggle from "./components/ThemeToggle";
 import ScrollReveal from "./components/ScrollReveal";
@@ -13,6 +13,34 @@ export default function Home() {
   const [isFlashing, setIsFlashing] = useState(false);
   const [targetTheme, setTargetTheme] = useState("sunset");
   const [isTeleporting, setIsTeleporting] = useState(false);
+  const [isShootingStar, setIsShootingStar] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const clickTimeoutRef = useRef(null);
+
+  const handleAvatarClick = () => {
+    if (isShootingStar) return;
+
+    if (clickTimeoutRef.current) {
+      clearTimeout(clickTimeoutRef.current);
+    }
+
+    const nextCount = clickCount + 1;
+    if (nextCount >= 5) {
+      setClickCount(0);
+      setIsShootingStar(true);
+
+      // Duration of full cosmic orbit sequence (launch + 2s wait + return + land)
+      setTimeout(() => {
+        setIsShootingStar(false);
+      }, 4200);
+    } else {
+      setClickCount(nextCount);
+      // Reset clicks after 2 seconds of inactivity
+      clickTimeoutRef.current = setTimeout(() => {
+        setClickCount(0);
+      }, 2000);
+    }
+  };
 
   const toggleTheme = () => {
     if (isFlashing) return;
@@ -59,54 +87,109 @@ export default function Home() {
 
       {/* Main Container */}
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col gap-12 sm:gap-16">
-        
+
         {/* --- HERO / HEADER SECTION --- */}
         <header className="flex flex-col items-center text-center mt-6 sm:mt-10">
           <ScrollReveal delay={100}>
-            {/* Status Badge */}
+            {/* Profile Avatar with Enhanced Glowing Aura Ring & Shooting Star Easter Egg */}
             <div
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium backdrop-blur-md border mb-6 transition-colors duration-500 ${
-                isSunset
-                  ? "bg-rose-950/40 border-rose-500/30 text-rose-300"
-                  : "bg-slate-900/40 border-cyan-500/30 text-cyan-300"
+              onClick={handleAvatarClick}
+              title="✦ Matheos Amanuel"
+              className={`relative mb-6 group cursor-pointer flex justify-center select-none ${
+                isShootingStar
+                  ? isSunset
+                    ? "animate-shooting-star-avatar-sunset z-50 pointer-events-none"
+                    : "animate-shooting-star-avatar z-50 pointer-events-none"
+                  : "active:scale-95 transition-transform duration-150"
               }`}
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Available for Opportunities</span>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={200}>
-            {/* Profile Avatar with Pulsing Aura Ring */}
-            <div className="relative mb-6 group cursor-pointer">
+              {/* Wide Ambient Glow Halo */}
               <div
-                className={`absolute -inset-1.5 rounded-full opacity-75 blur-md transition duration-500 group-hover:opacity-100 ${
+                className={`absolute -inset-4 sm:-inset-6 rounded-full blur-2xl opacity-80 transition-all duration-700 ${
+                  isShootingStar ? "opacity-100 scale-125" : "group-hover:opacity-100 group-hover:scale-110"
+                } ${
                   isSunset
-                    ? "bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 animate-pulse"
-                    : "bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 rotate-shadow-animation"
+                    ? "bg-gradient-to-tr from-amber-500 via-rose-500 to-orange-500 animate-pulse"
+                    : "bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-500 animate-pulse"
                 }`}
               />
+
+              {/* Radiant Pulsing Ring */}
+              <div
+                className={`absolute -inset-2 sm:-inset-2.5 rounded-full opacity-90 blur-md transition duration-500 ${
+                  isShootingStar ? "opacity-100 scale-110" : "group-hover:opacity-100"
+                } ${
+                  isSunset
+                    ? "bg-gradient-to-r from-amber-400 via-rose-500 to-pink-500 rotate-shadow-animation-sunset"
+                    : "bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-600 rotate-shadow-animation"
+                }`}
+              />
+
+              {/* Massive Shooting Star Comet Tail & Cosmic Trail */}
+              {isShootingStar && (
+                <>
+                  <div className="star-tail-wrapper">
+                    {/* Giant Outer Atmosphere Glow Trail */}
+                    <div
+                      className={`star-comet-tail-outer ${
+                        isSunset
+                          ? "bg-gradient-to-l from-white/95 via-amber-400/80 via-rose-500/40 to-transparent"
+                          : "bg-gradient-to-l from-white/95 via-cyan-400/80 via-blue-600/40 to-transparent"
+                      }`}
+                    />
+                    {/* Dense Luminescent Plasma Core Trail */}
+                    <div
+                      className={`star-comet-tail-core ${
+                        isSunset
+                          ? "bg-gradient-to-l from-white via-amber-300 via-orange-400 to-transparent shadow-[0_0_40px_#f59e0b]"
+                          : "bg-gradient-to-l from-white via-cyan-200 via-sky-400 to-transparent shadow-[0_0_40px_#38bdf8]"
+                      }`}
+                    />
+                    {/* Ultra-Bright Center Beam Stardust */}
+                    <div
+                      className={`star-comet-tail-sparks ${
+                        isSunset ? "bg-amber-200 shadow-[0_0_25px_#ffffff]" : "bg-cyan-100 shadow-[0_0_25px_#ffffff]"
+                      }`}
+                    />
+                  </div>
+
+                  {/* Landing Starburst Shockwave */}
+                  <div
+                    className={`absolute -inset-12 rounded-full border-2 animate-star-landing pointer-events-none z-20 ${
+                      isSunset ? "border-amber-400 shadow-[0_0_40px_#f59e0b]" : "border-cyan-400 shadow-[0_0_40px_#38bdf8]"
+                    }`}
+                  />
+                </>
+              )}
+
+              {/* Pure White Star Orb Overlay (stays solid white during flight, then fades out as the image fades in) */}
+              {isShootingStar && (
+                <div
+                  className={`absolute inset-0 rounded-full bg-white z-30 pointer-events-none ${
+                    isSunset ? "animate-star-white-orb-sunset" : "animate-star-white-orb"
+                  }`}
+                />
+              )}
+
               <Image
                 src="/profile.jpg"
                 alt="Matheos Amanuel"
                 width={200}
                 height={200}
                 priority
-                className="relative rounded-full border-4 border-slate-900/60 object-cover shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                className={`relative rounded-full border-4 object-cover shadow-2xl transition-all duration-500 group-hover:scale-105 ${
+                  isSunset ? "border-amber-400/80" : "border-cyan-400/80"
+                }`}
               />
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
             <h1
-              className={`text-4xl sm:text-6xl font-extrabold tracking-tight mb-3 transition-colors duration-500 ${
-                isSunset
+              className={`text-4xl sm:text-6xl font-extrabold tracking-tight mb-3 transition-colors duration-500 ${isSunset
                   ? "bg-gradient-to-r from-amber-200 via-rose-300 to-orange-400 bg-clip-text text-transparent"
                   : "bg-gradient-to-r from-white via-slate-200 to-cyan-400 bg-clip-text text-transparent"
-              }`}
+                }`}
             >
               Matheos Amanuel
             </h1>
@@ -122,11 +205,10 @@ export default function Home() {
                 href="https://www.linkedin.com/in/matheos-amanuel-81335b241/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${
-                  isSunset
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${isSunset
                     ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
                     : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
-                }`}
+                  }`}
               >
                 <Image
                   src="/linkedin.png"
@@ -142,11 +224,10 @@ export default function Home() {
                 href="https://github.com/Matheos164"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${
-                  isSunset
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${isSunset
                     ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
                     : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
-                }`}
+                  }`}
               >
                 <div className="bg-white p-0.5 rounded">
                   <Image
@@ -165,25 +246,19 @@ export default function Home() {
 
         {/* --- MAIN CONTENT SECTIONS --- */}
         <main className="flex flex-col gap-10 sm:gap-14">
-          
+
           {/* ABOUT ME SECTION */}
           <ScrollReveal threshold={0.1}>
             <section
-              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
-                isSunset ? "glass-card-sunset" : "glass-card"
-              }`}
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${isSunset ? "glass-card-sunset" : "glass-card"
+                }`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span
-                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                    isSunset
-                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
-                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+              <h1
+                className={`text-2xl sm:text-3xl font-bold text-center mb-6 transition-colors duration-500 ${isSunset ? "text-amber-300" : "text-cyan-300"
                   }`}
-                >
-                  ✦ Biography
-                </span>
-              </div>
+              >
+                Biography
+              </h1>
               <p className="text-slate-200 text-base sm:text-lg leading-relaxed">
                 Junior Software Developer & IT Support Specialist with hands-on experience developing web, desktop, and mobile
                 applications, alongside a proven track record of providing enterprise-level IT support across multiple locations via
@@ -198,22 +273,16 @@ export default function Home() {
           {/* EDUCATION COMPLETION SECTION */}
           <ScrollReveal threshold={0.1}>
             <section
-              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
-                isSunset ? "glass-card-sunset" : "glass-card"
-              }`}
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${isSunset ? "glass-card-sunset" : "glass-card"
+                }`}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <span
-                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                    isSunset
-                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
-                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+              <h1
+                className={`text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 transition-colors duration-500 ${isSunset ? "text-amber-300" : "text-cyan-300"
                   }`}
-                >
-                  ✦ Education Background
-                </span>
-              </div>
-              
+              >
+                Education Background
+              </h1>
+
               <div className="flex flex-col items-center gap-6">
                 {/* Institution Badge */}
                 <div className="bg-white/95 p-3 rounded-xl shadow-lg border border-slate-200/50 hover:scale-105 transition-transform duration-300">
@@ -272,22 +341,16 @@ export default function Home() {
           {/* PROGRAMMING LANGUAGES SECTION */}
           <ScrollReveal threshold={0.1}>
             <section
-              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
-                isSunset ? "glass-card-sunset" : "glass-card"
-              }`}
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${isSunset ? "glass-card-sunset" : "glass-card"
+                }`}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <span
-                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                    isSunset
-                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
-                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+              <h1
+                className={`text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 transition-colors duration-500 ${isSunset ? "text-amber-300" : "text-cyan-300"
                   }`}
-                >
-                  ✦ Tech Stack & Skills
-                </span>
-              </div>
-              
+              >
+                Tech Stack & Skills
+              </h1>
+
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
                 {[
                   { name: "Python", src: "/python.png", width: 48, height: 48 },
@@ -324,21 +387,15 @@ export default function Home() {
           {/* PROJECTS SECTION */}
           <ScrollReveal threshold={0.1}>
             <section
-              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
-                isSunset ? "glass-card-sunset" : "glass-card"
-              }`}
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${isSunset ? "glass-card-sunset" : "glass-card"
+                }`}
             >
-              <div className="flex items-center gap-3 mb-8">
-                <span
-                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                    isSunset
-                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
-                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+              <h1
+                className={`text-2xl sm:text-3xl font-bold text-center mb-8 transition-colors duration-500 ${isSunset ? "text-amber-300" : "text-cyan-300"
                   }`}
-                >
-                  ✦ Featured Projects
-                </span>
-              </div>
+              >
+                Featured Projects
+              </h1>
 
               <div className="flex flex-col gap-10">
                 {/* PROJECT 1 */}
@@ -491,21 +548,15 @@ export default function Home() {
           {/* EXTRACURRICULAR & RESEARCH SECTION */}
           <ScrollReveal threshold={0.1}>
             <section
-              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${
-                isSunset ? "glass-card-sunset" : "glass-card"
-              }`}
+              className={`p-6 sm:p-10 rounded-2xl transition-all duration-500 ${isSunset ? "glass-card-sunset" : "glass-card"
+                }`}
             >
-              <div className="flex items-center gap-3 mb-8">
-                <span
-                  className={`px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                    isSunset
-                      ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
-                      : "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+              <h1
+                className={`text-2xl sm:text-3xl font-bold text-center mb-8 transition-colors duration-500 ${isSunset ? "text-amber-300" : "text-cyan-300"
                   }`}
-                >
-                  ✦ Extracurricular & Research
-                </span>
-              </div>
+              >
+                Extracurricular & Research
+              </h1>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* ITEM 1 */}
@@ -626,11 +677,10 @@ export default function Home() {
           {/* Futuristic Teleport to Top Button */}
           <button
             onClick={teleportToTop}
-            className={`group flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border text-xs sm:text-sm font-semibold transition-all duration-500 shadow-lg cursor-pointer ${
-              isSunset
+            className={`group flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border text-xs sm:text-sm font-semibold transition-all duration-500 shadow-lg cursor-pointer ${isSunset
                 ? "bg-amber-950/40 border-amber-500/40 text-amber-200 hover:bg-amber-900/60 hover:border-amber-400 hover:shadow-amber-900/40"
                 : "bg-slate-900/50 border-cyan-500/40 text-cyan-200 hover:bg-slate-800/80 hover:border-cyan-400 hover:shadow-cyan-900/40"
-            }`}
+              }`}
           >
             <span className="text-sm transition-transform duration-300 group-hover:-translate-y-1">⚡</span>
             <span>Teleport to Top</span>
