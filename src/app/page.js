@@ -91,110 +91,149 @@ export default function Home() {
         {/* --- HERO / HEADER SECTION --- */}
         <header className="flex flex-col items-center text-center mt-6 sm:mt-10">
           <ScrollReveal delay={100}>
-            {/* Profile Avatar with Enhanced Glowing Aura Ring & Shooting Star Easter Egg */}
+            {/* Profile Avatar with Enhanced Glowing Aura Ring & Black Hole Suction -> Shooting Star Easter Egg */}
             <div
               onClick={handleAvatarClick}
               title="✦ Matheos Amanuel"
-              className={`relative mb-6 group cursor-pointer flex justify-center select-none ${
-                isShootingStar
+              className="relative mb-6 group cursor-pointer flex justify-center select-none"
+            >
+              {/* Black Hole Suction Vortex Effect (Departure Phase: 0s - 0.92s) */}
+              {isShootingStar && (
+                <div
+                  className={`absolute -inset-8 sm:-inset-12 rounded-full pointer-events-none z-40 flex items-center justify-center ${isSunset ? "animate-black-hole-sunset" : "animate-black-hole"
+                    }`}
+                >
+                  {/* Gravitational Lensing Outer Warp Aura */}
+                  <div
+                    className={`absolute -inset-6 rounded-full blur-2xl opacity-80 animate-gravitational-lensing ${isSunset
+                      ? "bg-gradient-to-r from-orange-600 via-rose-600 to-amber-500"
+                      : "bg-gradient-to-r from-cyan-500 via-indigo-600 to-purple-600"
+                      }`}
+                  />
+
+                  {/* Outer Accretion Disk Vortex (Conic Gradient with Spiral Beaming) */}
+                  <div
+                    className={`absolute inset-0 rounded-full blur-sm opacity-95 animate-accretion-spin ${isSunset ? "blackhole-disk-sunset" : "blackhole-disk"
+                      }`}
+                  />
+
+                  {/* Inner High-Velocity Plasma Swirl Ring */}
+                  <div
+                    className={`absolute inset-4 sm:inset-6 rounded-full blur-[2px] opacity-90 animate-accretion-spin-reverse ${isSunset ? "blackhole-inner-disk-sunset" : "blackhole-inner-disk"
+                      }`}
+                  />
+
+                  {/* Relativistic Photon Ring (Blazing Event Horizon Boundary) */}
+                  <div
+                    className={`absolute inset-8 sm:inset-10 rounded-full border-2 border-white/90 ${isSunset
+                      ? "shadow-[0_0_35px_#f97316]"
+                      : "shadow-[0_0_35px_#38bdf8]"
+                      }`}
+                  />
+
+                  {/* Pitch-Black Singularity Core (Event Horizon Void) */}
+                  <div className="absolute inset-10 sm:inset-12 rounded-full bg-black shadow-[inset_0_0_35px_#000000] border border-black" />
+
+                  {/* Singularity Implosion Shockwave (Triggered at Black Hole Collapse) */}
+                  <div
+                    className={`absolute inset-0 rounded-full border-2 animate-singularity-implosion pointer-events-none ${isSunset ? "border-amber-300 shadow-[0_0_45px_#f59e0b]" : "border-cyan-200 shadow-[0_0_45px_#38bdf8]"
+                      }`}
+                  />
+                </div>
+              )}
+
+              {/* Avatar Traveling / Suction Entity */}
+              <div
+                className={`relative flex justify-center ${isShootingStar
                   ? isSunset
                     ? "animate-shooting-star-avatar-sunset z-50 pointer-events-none"
                     : "animate-shooting-star-avatar z-50 pointer-events-none"
                   : "active:scale-95 transition-transform duration-150"
-              }`}
-            >
-              {/* Wide Ambient Glow Halo */}
-              <div
-                className={`absolute -inset-4 sm:-inset-6 rounded-full blur-2xl opacity-80 transition-all duration-700 ${
-                  isShootingStar ? "opacity-100 scale-125" : "group-hover:opacity-100 group-hover:scale-110"
-                } ${
-                  isSunset
-                    ? "bg-gradient-to-tr from-amber-500 via-rose-500 to-orange-500 animate-pulse"
-                    : "bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-500 animate-pulse"
-                }`}
-              />
+                  }`}
+              >
+                {/* Wide Ambient Glow Halo */}
+                <div
+                  className={`absolute -inset-4 sm:-inset-6 rounded-full blur-2xl opacity-80 transition-all duration-700 ${isShootingStar ? "opacity-100 scale-125" : "group-hover:opacity-100 group-hover:scale-110"
+                    } ${isSunset
+                      ? "bg-gradient-to-tr from-amber-500 via-rose-500 to-orange-500 animate-pulse"
+                      : "bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-500 animate-pulse"
+                    }`}
+                />
 
-              {/* Radiant Pulsing Ring */}
-              <div
-                className={`absolute -inset-2 sm:-inset-2.5 rounded-full opacity-90 blur-md transition duration-500 ${
-                  isShootingStar ? "opacity-100 scale-110" : "group-hover:opacity-100"
-                } ${
-                  isSunset
-                    ? "bg-gradient-to-r from-amber-400 via-rose-500 to-pink-500 rotate-shadow-animation-sunset"
-                    : "bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-600 rotate-shadow-animation"
-                }`}
-              />
+                {/* Radiant Pulsing Ring */}
+                <div
+                  className={`absolute -inset-2 sm:-inset-2.5 rounded-full opacity-90 blur-md transition duration-500 ${isShootingStar ? "opacity-100 scale-110" : "group-hover:opacity-100"
+                    } ${isSunset
+                      ? "bg-gradient-to-r from-amber-400 via-rose-500 to-pink-500 rotate-shadow-animation-sunset"
+                      : "bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-600 rotate-shadow-animation"
+                    }`}
+                />
 
-              {/* Massive Shooting Star Comet Tail & Cosmic Trail */}
-              {isShootingStar && (
-                <>
-                  <div className="star-tail-wrapper">
-                    {/* Giant Outer Atmosphere Glow Trail */}
-                    <div
-                      className={`star-comet-tail-outer ${
-                        isSunset
+                {/* Massive Shooting Star Comet Tail & Cosmic Trail (Only active on return phase) */}
+                {isShootingStar && (
+                  <>
+                    <div className="star-tail-wrapper">
+                      {/* Giant Outer Atmosphere Glow Trail */}
+                      <div
+                        className={`star-comet-tail-outer ${isSunset
                           ? "bg-gradient-to-l from-white/95 via-amber-400/80 via-rose-500/40 to-transparent"
                           : "bg-gradient-to-l from-white/95 via-cyan-400/80 via-blue-600/40 to-transparent"
-                      }`}
-                    />
-                    {/* Dense Luminescent Plasma Core Trail */}
-                    <div
-                      className={`star-comet-tail-core ${
-                        isSunset
+                          }`}
+                      />
+                      {/* Dense Luminescent Plasma Core Trail */}
+                      <div
+                        className={`star-comet-tail-core ${isSunset
                           ? "bg-gradient-to-l from-white via-amber-300 via-orange-400 to-transparent shadow-[0_0_40px_#f59e0b]"
                           : "bg-gradient-to-l from-white via-cyan-200 via-sky-400 to-transparent shadow-[0_0_40px_#38bdf8]"
-                      }`}
-                    />
-                    {/* Ultra-Bright Center Beam Stardust */}
+                          }`}
+                      />
+                      {/* Ultra-Bright Center Beam Stardust */}
+                      <div
+                        className={`star-comet-tail-sparks ${isSunset ? "bg-amber-200 shadow-[0_0_25px_#ffffff]" : "bg-cyan-100 shadow-[0_0_25px_#ffffff]"
+                          }`}
+                      />
+                    </div>
+
+                    {/* Landing Starburst Shockwave */}
                     <div
-                      className={`star-comet-tail-sparks ${
-                        isSunset ? "bg-amber-200 shadow-[0_0_25px_#ffffff]" : "bg-cyan-100 shadow-[0_0_25px_#ffffff]"
-                      }`}
+                      className={`absolute -inset-12 rounded-full border-2 animate-star-landing pointer-events-none z-20 ${isSunset ? "border-amber-400 shadow-[0_0_40px_#f59e0b]" : "border-cyan-400 shadow-[0_0_40px_#38bdf8]"
+                        }`}
                     />
-                  </div>
+                  </>
+                )}
 
-                  {/* Landing Starburst Shockwave */}
+                {/* Pure White Star Orb Overlay (Active during return flight, then fades on landing) */}
+                {isShootingStar && (
                   <div
-                    className={`absolute -inset-12 rounded-full border-2 animate-star-landing pointer-events-none z-20 ${
-                      isSunset ? "border-amber-400 shadow-[0_0_40px_#f59e0b]" : "border-cyan-400 shadow-[0_0_40px_#38bdf8]"
-                    }`}
+                    className={`absolute inset-0 rounded-full bg-white z-30 pointer-events-none ${isSunset ? "animate-star-white-orb-sunset" : "animate-star-white-orb"
+                      }`}
                   />
-                </>
-              )}
+                )}
 
-              {/* Pure White Star Orb Overlay (stays solid white during flight, then fades out as the image fades in) */}
-              {isShootingStar && (
-                <div
-                  className={`absolute inset-0 rounded-full bg-white z-30 pointer-events-none ${
-                    isSunset ? "animate-star-white-orb-sunset" : "animate-star-white-orb"
-                  }`}
+                <Image
+                  src="/profile.jpg"
+                  alt="Matheos Amanuel"
+                  width={200}
+                  height={200}
+                  priority
+                  className={`relative rounded-full border-4 object-cover shadow-2xl transition-all duration-500 group-hover:scale-105 ${isSunset ? "border-amber-400/80" : "border-cyan-400/80"
+                    }`}
                 />
-              )}
-
-              <Image
-                src="/profile.jpg"
-                alt="Matheos Amanuel"
-                width={200}
-                height={200}
-                priority
-                className={`relative rounded-full border-4 object-cover shadow-2xl transition-all duration-500 group-hover:scale-105 ${
-                  isSunset ? "border-amber-400/80" : "border-cyan-400/80"
-                }`}
-              />
+              </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
             <h1
               className={`text-4xl sm:text-6xl font-extrabold tracking-tight mb-3 transition-colors duration-500 ${isSunset
-                  ? "bg-gradient-to-r from-amber-200 via-rose-300 to-orange-400 bg-clip-text text-transparent"
-                  : "bg-gradient-to-r from-white via-slate-200 to-cyan-400 bg-clip-text text-transparent"
+                ? "bg-gradient-to-r from-amber-200 via-rose-300 to-orange-400 bg-clip-text text-transparent"
+                : "bg-gradient-to-r from-white via-slate-200 to-cyan-400 bg-clip-text text-transparent"
                 }`}
             >
               Matheos Amanuel
             </h1>
             <h2 className="text-lg sm:text-2xl font-medium text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-              Junior Software Developer & IT Support Specialist
+              Software Developer & IT Specialist
             </h2>
           </ScrollReveal>
 
@@ -206,8 +245,8 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${isSunset
-                    ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
-                    : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
+                  ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
+                  : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
                   }`}
               >
                 <Image
@@ -225,8 +264,8 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-md border text-sm font-semibold transition-all duration-300 shadow-md ${isSunset
-                    ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
-                    : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
+                  ? "bg-amber-950/30 border-amber-500/30 text-amber-200 hover:bg-amber-900/50 hover:border-amber-400"
+                  : "bg-slate-900/30 border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:border-cyan-400 hover:text-cyan-300"
                   }`}
               >
                 <div className="bg-white p-0.5 rounded">
@@ -259,8 +298,8 @@ export default function Home() {
               >
                 Biography
               </h1>
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed">
-                Junior Software Developer & IT Support Specialist with hands-on experience developing web, desktop, and mobile
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed text-center">
+                Software Developer & IT Specialist with hands-on experience developing web, desktop, and mobile
                 applications, alongside a proven track record of providing enterprise-level IT support across multiple locations via
                 phone, on-site, and remote channels. Proficient in coding languages such as Python, C#, PHP, etc., experienced in
                 managing workstations, user accounts, and process documentation. Committed to delivering exceptional customer
@@ -616,7 +655,7 @@ export default function Home() {
                       Researched and developed a proof of concept backend prototype for CrowdVision, an event social media platform. Engineered video upscaling, video stabilization, audio alignment, and multi-angle video sequence merging.
                     </p>
                   </div>
-                  <div className="pt-2 text-center">
+                  {/* <div className="pt-2 text-center">
                     <a
                       href="https://theforge.mcmaster.ca/startups/crowdvision/"
                       target="_blank"
@@ -626,7 +665,7 @@ export default function Home() {
                       <Image src="/link.png" alt="Link" width={14} height={14} />
                       <span>Project Article</span>
                     </a>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* ITEM 3 */}
@@ -678,8 +717,8 @@ export default function Home() {
           <button
             onClick={teleportToTop}
             className={`group flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border text-xs sm:text-sm font-semibold transition-all duration-500 shadow-lg cursor-pointer ${isSunset
-                ? "bg-amber-950/40 border-amber-500/40 text-amber-200 hover:bg-amber-900/60 hover:border-amber-400 hover:shadow-amber-900/40"
-                : "bg-slate-900/50 border-cyan-500/40 text-cyan-200 hover:bg-slate-800/80 hover:border-cyan-400 hover:shadow-cyan-900/40"
+              ? "bg-amber-950/40 border-amber-500/40 text-amber-200 hover:bg-amber-900/60 hover:border-amber-400 hover:shadow-amber-900/40"
+              : "bg-slate-900/50 border-cyan-500/40 text-cyan-200 hover:bg-slate-800/80 hover:border-cyan-400 hover:shadow-cyan-900/40"
               }`}
           >
             <span className="text-sm transition-transform duration-300 group-hover:-translate-y-1">⚡</span>
@@ -727,6 +766,9 @@ export default function Home() {
           </div>
           <p className="text-xs sm:text-sm">
             &copy; {new Date().getFullYear()} Matheos Amanuel. All rights reserved.
+          </p>
+          <p className="text-xs sm:text-sm">
+            Ps: Click my picture for a easter egg!
           </p>
         </footer>
       </div>

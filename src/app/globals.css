@@ -327,38 +327,287 @@ html, body {
               background-color 0.5s ease;
 }
 
+/* --- BLACK HOLE EASTER EGG DEPARTURE ANIMATIONS --- */
+
+/* Black Hole Accretion Disk Gradients */
+.blackhole-disk {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(6, 182, 212, 0.95) 45deg,
+    rgba(147, 51, 234, 0.9) 110deg,
+    transparent 170deg,
+    rgba(56, 189, 248, 1) 225deg,
+    rgba(236, 72, 153, 0.85) 290deg,
+    transparent 360deg
+  );
+}
+
+.blackhole-disk-sunset {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(245, 158, 11, 0.95) 45deg,
+    rgba(244, 63, 94, 0.9) 110deg,
+    transparent 170deg,
+    rgba(251, 146, 60, 1) 225deg,
+    rgba(217, 70, 239, 0.85) 290deg,
+    transparent 360deg
+  );
+}
+
+.blackhole-inner-disk {
+  background: conic-gradient(
+    from 180deg,
+    rgba(255, 255, 255, 0.95) 0deg,
+    rgba(56, 189, 248, 0.9) 60deg,
+    transparent 120deg,
+    rgba(168, 85, 247, 0.95) 180deg,
+    rgba(6, 182, 212, 0.9) 260deg,
+    transparent 360deg
+  );
+}
+
+.blackhole-inner-disk-sunset {
+  background: conic-gradient(
+    from 180deg,
+    rgba(255, 255, 255, 0.95) 0deg,
+    rgba(251, 146, 60, 0.9) 60deg,
+    transparent 120deg,
+    rgba(236, 72, 153, 0.95) 180deg,
+    rgba(245, 158, 11, 0.9) 260deg,
+    transparent 360deg
+  );
+}
+
+/* Swirling Accretion Disk Plasma */
+@keyframes accretionSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+@keyframes accretionSpinReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(-720deg);
+  }
+}
+
+.animate-accretion-spin {
+  animation: accretionSpin 2.2s linear infinite;
+}
+
+.animate-accretion-spin-reverse {
+  animation: accretionSpinReverse 1.6s linear infinite;
+}
+
+/* Gravitational Lensing Distortion Waves */
+@keyframes gravitationalLensing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+}
+
+.animate-gravitational-lensing {
+  animation: gravitationalLensing 1.2s ease-in-out infinite;
+}
+
+/* Singularity Implosion Shockwave at Collapse */
+@keyframes singularityImplosion {
+  0%, 17% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  18% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+  19.5% {
+    transform: scale(0.1);
+    opacity: 1;
+    box-shadow: 0 0 60px 30px #ffffff;
+  }
+  20.8% {
+    transform: scale(2);
+    opacity: 0.8;
+  }
+  21.8%, 100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.animate-singularity-implosion {
+  animation: singularityImplosion 4.2s ease-out forwards;
+}
+
+/* Main Black Hole Vortex Container Lifecycle */
+@keyframes blackHoleVortex {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  1.5% {
+    transform: scale(0.4) rotate(90deg);
+    opacity: 0.8;
+  }
+  4% {
+    transform: scale(1.18) rotate(240deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.9)) drop-shadow(0 0 60px rgba(99, 102, 241, 0.7));
+  }
+  8% {
+    transform: scale(1.28) rotate(540deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(56, 189, 248, 1)) drop-shadow(0 0 75px rgba(168, 85, 247, 0.85));
+  }
+  14% {
+    transform: scale(1.22) rotate(960deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.9)) drop-shadow(0 0 65px rgba(168, 85, 247, 0.75));
+  }
+  17.5% {
+    transform: scale(1) rotate(1260deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 70px rgba(56, 189, 248, 0.9));
+  }
+  19.5% {
+    transform: scale(0.35) rotate(1500deg);
+    opacity: 0.85;
+    filter: brightness(2.5) drop-shadow(0 0 45px #ffffff);
+  }
+  21% {
+    transform: scale(0.04) rotate(1680deg);
+    opacity: 0.5;
+    filter: brightness(4) drop-shadow(0 0 60px #ffffff);
+  }
+  21.8%, 100% {
+    transform: scale(0) rotate(1720deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes blackHoleVortexSunset {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  1.5% {
+    transform: scale(0.4) rotate(90deg);
+    opacity: 0.8;
+  }
+  4% {
+    transform: scale(1.18) rotate(240deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.9)) drop-shadow(0 0 60px rgba(244, 63, 94, 0.7));
+  }
+  8% {
+    transform: scale(1.28) rotate(540deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(251, 146, 60, 1)) drop-shadow(0 0 75px rgba(217, 70, 239, 0.85));
+  }
+  14% {
+    transform: scale(1.22) rotate(960deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(251, 146, 60, 0.9)) drop-shadow(0 0 65px rgba(244, 63, 94, 0.75));
+  }
+  17.5% {
+    transform: scale(1) rotate(1260deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 70px rgba(251, 146, 60, 0.9));
+  }
+  19.5% {
+    transform: scale(0.35) rotate(1500deg);
+    opacity: 0.85;
+    filter: brightness(2.5) drop-shadow(0 0 45px #ffffff);
+  }
+  21% {
+    transform: scale(0.04) rotate(1680deg);
+    opacity: 0.5;
+    filter: brightness(4) drop-shadow(0 0 60px #ffffff);
+  }
+  21.8%, 100% {
+    transform: scale(0) rotate(1720deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.animate-black-hole {
+  animation: blackHoleVortex 4.2s cubic-bezier(0.16, 0.9, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.animate-black-hole-sunset {
+  animation: blackHoleVortexSunset 4.2s cubic-bezier(0.16, 0.9, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
 /* --- SHOOTING STAR EASTER EGG ANIMATIONS --- */
 @keyframes shootingStarFlyOff {
+  /* 0% - 20.5%: Black hole suction (vortex spiral into singularity at 0, 0) */
   0% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     filter: brightness(1) drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
     opacity: 1;
     z-index: 100;
   }
-  3% {
-    transform: translate3d(-12px, -12px, 0) scale(0.92);
-    filter: brightness(2) drop-shadow(0 0 35px rgba(56, 189, 248, 0.95));
+  2% {
+    transform: translate3d(0, 0, 0) scale(0.96) rotate(-30deg);
+    filter: brightness(1.1) drop-shadow(0 0 25px rgba(56, 189, 248, 0.8));
+    opacity: 1;
   }
   5% {
-    transform: translate3d(-5px, -5px, 0) scale(0.85);
-    filter: brightness(2.8) drop-shadow(0 0 55px rgba(255, 255, 255, 1));
-  }
-  /* Shoot out towards Bottom-Right Corner of screen */
-  20% {
-    transform: translate3d(140vw, 140vh, 0) scale(0.25);
+    transform: translate3d(0, 0, 0) scale(0.82) rotate(-120deg);
+    filter: brightness(1.3) contrast(1.1) drop-shadow(0 0 35px rgba(56, 189, 248, 0.95));
     opacity: 1;
-    filter: brightness(3.5) drop-shadow(0 0 70px rgba(56, 189, 248, 1));
   }
-  22% {
-    transform: translate3d(140vw, 140vh, 0) scale(0.25);
+  9% {
+    transform: translate3d(0, 0, 0) scale(0.55) rotate(-320deg);
+    filter: brightness(1.6) contrast(1.2) blur(0.5px) drop-shadow(0 0 45px rgba(56, 189, 248, 1));
+    opacity: 0.95;
+  }
+  13% {
+    transform: translate3d(0, 0, 0) scale(0.28) rotate(-600deg);
+    filter: brightness(2) contrast(1.3) blur(1.5px) drop-shadow(0 0 55px rgba(255, 255, 255, 1));
+    opacity: 0.85;
+  }
+  17% {
+    transform: translate3d(0, 0, 0) scale(0.08) rotate(-900deg);
+    filter: brightness(3) blur(3px) drop-shadow(0 0 65px rgba(255, 255, 255, 1));
+    opacity: 0.6;
+  }
+  19.5% {
+    transform: translate3d(0, 0, 0) scale(0.01) rotate(-1080deg);
+    filter: brightness(4) blur(4px);
+    opacity: 0.1;
+  }
+  20.5% {
+    transform: translate3d(0, 0, 0) scale(0) rotate(-1140deg);
     opacity: 0;
   }
   /* 2-Second Off-Screen Pause & Relocation to Top-Left */
-  23%, 66% {
+  21%, 66% {
     transform: translate3d(-140vw, -140vh, 0) scale(0.35);
     opacity: 0;
   }
-  /* Re-Entry from Top-Left Corner towards Center (moving Bottom-Right) */
+  /* Re-Entry from Top-Left Corner towards Center (moving Bottom-Right) - UNTOUCHED */
   68% {
     transform: translate3d(-135vw, -135vh, 0) scale(0.35);
     opacity: 1;
@@ -387,36 +636,53 @@ html, body {
 }
 
 @keyframes shootingStarFlyOffSunset {
+  /* 0% - 20.5%: Black hole suction (vortex spiral into singularity at 0, 0) */
   0% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     filter: brightness(1) drop-shadow(0 0 10px rgba(251, 146, 60, 0.5));
     opacity: 1;
     z-index: 100;
   }
-  3% {
-    transform: translate3d(-12px, -12px, 0) scale(0.92);
-    filter: brightness(2) drop-shadow(0 0 35px rgba(251, 146, 60, 0.95));
+  2% {
+    transform: translate3d(0, 0, 0) scale(0.96) rotate(-30deg);
+    filter: brightness(1.1) drop-shadow(0 0 25px rgba(251, 146, 60, 0.8));
+    opacity: 1;
   }
   5% {
-    transform: translate3d(-5px, -5px, 0) scale(0.85);
-    filter: brightness(2.8) drop-shadow(0 0 55px rgba(255, 255, 255, 1));
-  }
-  /* Shoot out towards Bottom-Right Corner of screen */
-  20% {
-    transform: translate3d(140vw, 140vh, 0) scale(0.25);
+    transform: translate3d(0, 0, 0) scale(0.82) rotate(-120deg);
+    filter: brightness(1.3) contrast(1.1) drop-shadow(0 0 35px rgba(251, 146, 60, 0.95));
     opacity: 1;
-    filter: brightness(3.5) drop-shadow(0 0 70px rgba(251, 146, 60, 1));
   }
-  22% {
-    transform: translate3d(140vw, 140vh, 0) scale(0.25);
+  9% {
+    transform: translate3d(0, 0, 0) scale(0.55) rotate(-320deg);
+    filter: brightness(1.6) contrast(1.2) blur(0.5px) drop-shadow(0 0 45px rgba(251, 146, 60, 1));
+    opacity: 0.95;
+  }
+  13% {
+    transform: translate3d(0, 0, 0) scale(0.28) rotate(-600deg);
+    filter: brightness(2) contrast(1.3) blur(1.5px) drop-shadow(0 0 55px rgba(255, 255, 255, 1));
+    opacity: 0.85;
+  }
+  17% {
+    transform: translate3d(0, 0, 0) scale(0.08) rotate(-900deg);
+    filter: brightness(3) blur(3px) drop-shadow(0 0 65px rgba(255, 255, 255, 1));
+    opacity: 0.6;
+  }
+  19.5% {
+    transform: translate3d(0, 0, 0) scale(0.01) rotate(-1080deg);
+    filter: brightness(4) blur(4px);
+    opacity: 0.1;
+  }
+  20.5% {
+    transform: translate3d(0, 0, 0) scale(0) rotate(-1140deg);
     opacity: 0;
   }
   /* 2-Second Off-Screen Pause & Relocation to Top-Left */
-  23%, 66% {
+  21%, 66% {
     transform: translate3d(-140vw, -140vh, 0) scale(0.35);
     opacity: 0;
   }
-  /* Re-Entry from Top-Left Corner towards Center (moving Bottom-Right) */
+  /* Re-Entry from Top-Left Corner towards Center (moving Bottom-Right) - UNTOUCHED */
   68% {
     transform: translate3d(-135vw, -135vh, 0) scale(0.35);
     opacity: 1;
@@ -454,9 +720,13 @@ html, body {
   will-change: transform, filter, opacity;
 }
 
-/* --- WHITE STAR ORB FADE ANIMATION --- */
+/* --- WHITE STAR ORB FADE ANIMATION (Active during return flight: 68% - 100%) --- */
 @keyframes starWhiteOrb {
-  0% {
+  0%, 66% {
+    opacity: 0;
+    box-shadow: 0 0 0px 0px transparent;
+  }
+  68% {
     opacity: 1;
     box-shadow: 0 0 70px 25px #ffffff, 0 0 120px 45px rgba(56, 189, 248, 0.95);
   }
@@ -475,7 +745,11 @@ html, body {
 }
 
 @keyframes starWhiteOrbSunset {
-  0% {
+  0%, 66% {
+    opacity: 0;
+    box-shadow: 0 0 0px 0px transparent;
+  }
+  68% {
     opacity: 1;
     box-shadow: 0 0 70px 25px #ffffff, 0 0 120px 45px rgba(251, 146, 60, 0.95);
   }
@@ -514,27 +788,11 @@ html, body {
   z-index: 10;
 }
 
-/* --- MASSIVE SHOOTING STAR COMET TAILS --- */
+/* --- MASSIVE SHOOTING STAR COMET TAILS (Active on return phase: 68% - 90%) --- */
 @keyframes starTailGlowCore {
-  0% {
+  0%, 66% {
     opacity: 0;
     width: 0px;
-  }
-  4% {
-    opacity: 1;
-    width: 400px;
-  }
-  18% {
-    opacity: 1;
-    width: 950px;
-  }
-  21% {
-    opacity: 0;
-    width: 200px;
-  }
-  22%, 66% {
-    opacity: 0;
-    width: 100px;
   }
   68% {
     opacity: 1;
@@ -559,25 +817,9 @@ html, body {
 }
 
 @keyframes starTailGlowOuter {
-  0% {
+  0%, 66% {
     opacity: 0;
     width: 0px;
-  }
-  4% {
-    opacity: 0.9;
-    width: 500px;
-  }
-  18% {
-    opacity: 1;
-    width: 1150px;
-  }
-  21% {
-    opacity: 0;
-    width: 250px;
-  }
-  22%, 66% {
-    opacity: 0;
-    width: 100px;
   }
   68% {
     opacity: 1;
