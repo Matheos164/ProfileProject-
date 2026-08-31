@@ -721,7 +721,6 @@ export default function Home() {
               : "bg-slate-900/50 border-cyan-500/40 text-cyan-200 hover:bg-slate-800/80 hover:border-cyan-400 hover:shadow-cyan-900/40"
               }`}
           >
-            <span className="text-sm transition-transform duration-300 group-hover:-translate-y-1">⚡</span>
             <span>Teleport to Top</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
